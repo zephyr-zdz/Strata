@@ -327,6 +327,9 @@ struct Options {
     /// Plan v0.3 P6: a draft enters the verify window only while every draft before it (and itself) has at least
     /// this probability under the draft layer; 0 = always --spec-1 drafts.
     double spec_min_p = 0.0;
+    /// --spec-cost (or STRATA_SPEC_COST=1): of the drafts above that floor, keep the ones whose calibrated acceptance
+    /// pays for their measured verify cost (DraftPolicy::choose_mtp).  The output is the same; only the speed changes.
+    bool spec_cost = false;
     /// Stop when the model emits an end-of-turn token (<|endoftext|> 248044, <|im_end|> 248046, or --eos-ids).
     bool stop_eos = false;
     std::vector<int64_t> eos_ids = {248044, 248046};
@@ -460,6 +463,8 @@ void usage() {
                  "  --turn-token ID      --serve: the token that opens a chat turn (default 248045, <|im_start|>)\n"
                  "  --short-read N       --serve: read at most N fresh text tokens through the decode windows instead\n"
                  "                       of the batched prompt path (default 64, 0 = off)\n"
+                 "  --spec-cost          of the drafts above --spec-min-p, verify only those whose calibrated acceptance\n"
+                 "                       pays for their measured cost (also STRATA_SPEC_COST=1; --serve: spec_cost=0|1)\n"
                  "  --suffix-draft N     prompt lookup: draft from an earlier repeat of the last N+ tokens of context\n"
                  "                       when it pays (default 3; 0 = MTP only)\n"
                  "  --mtp-max-t M        cap the MTP's windows at M tokens (0 = --spec; longer ones come from suffixes)\n"
@@ -1082,6 +1087,7 @@ int main(int argc, char** argv) {
         else if (a == "--pcie-frac") o.pcie_frac = std::atof(next("--pcie-frac"));
         else if (a == "--adapt-every") o.adapt_every = std::atoi(next("--adapt-every"));
         else if (a == "--spec-min-p") o.spec_min_p = std::atof(next("--spec-min-p"));
+        else if (a == "--spec-cost") o.spec_cost = true;
         else if (a == "--stop-eos") o.stop_eos = true;
         else if (a == "--spec-split") o.spec_split = true;
         else if (a == "--layer-split") o.layer_split = next("--layer-split");
@@ -1185,6 +1191,7 @@ int main(int argc, char** argv) {
         }
         }
     }
+    if (const char* e = std::getenv("STRATA_SPEC_COST"); e != nullptr && e[0] == '1') o.spec_cost = true;
     if (o.serve && o.conversation_cache_mib > 0 && (o.prompt_cache == 0 || o.conversation_cache_slots == 0))
         std::fprintf(stderr, "strata serve: warning: conversation caching is disabled by %s\n",
                      o.prompt_cache == 0 ? "--prompt-cache 0" : "--conversation-cache-slots 0");
@@ -4156,6 +4163,7 @@ int main(int argc, char** argv) {
             // tuning keys (setup's calibration measures settings without restarting the engine): the PCIe share of
             // the missed experts and the draft-probability floor, for this request only
             double req_pcie_frac = o.pcie_frac, req_spec_min_p = o.spec_min_p;
+            bool req_spec_cost = o.spec_cost;
             if (endp != nullptr) {   // GENI takes the same keys (#75: image requests were always greedy); its
                                      // embedding file path is the first token without an =
                 for (;;) {
@@ -4180,6 +4188,7 @@ int main(int argc, char** argv) {
                     else if (key == "seed") req_seed = std::strtoull(tok.c_str() + eq + 1, nullptr, 10);
                     else if (key == "pcie_frac") req_pcie_frac = std::clamp((double) fv, 0.0, 1.0);
                     else if (key == "spec_min_p") req_spec_min_p = std::clamp((double) fv, 0.0, 1.0);
+                    else if (key == "spec_cost") req_spec_cost = std::atoi(tok.c_str() + eq + 1) != 0;
                     // unknown keys are skipped: the ids start at the first token without '='
                 }
             }
@@ -4718,6 +4727,8 @@ int main(int argc, char** argv) {
                     T = 1;
                     while (T < S_mtp && dprob[(size_t) T - 1] >= (float) req_spec_min_p) ++T;
                 }
+                // --spec-cost: of those drafts, the ones whose calibrated acceptance pays for their measured cost
+                if (req_spec_cost && !first_window && T > 1) T = policy.choose_mtp(dprob.data(), T - 1);
                 if (first_window) T = 1;
                 // a repeat of earlier context (prompt lookup) where the MTP's own first guess agrees: the policy takes it
                 // when its expected tokens per ms, from the measured acceptance and window costs, beat the MTP window's
@@ -4760,6 +4771,8 @@ int main(int argc, char** argv) {
                 int a = 0;
                 while (a < T - 1 && window[(size_t) a + 1] == outv[(size_t) a]) ++a;
                 if (from_sfx) { ++sfx_windows; sfx_drafts += T - 1; sfx_ok += a; }
+                // the MTP drafts' calibration (before the next draft overwrites `dprob`), with or without --spec-cost
+                else if (!first_window && T > 1) policy.observe_mtp_drafts(dprob.data(), T, a);
                 const Clock::time_point tw1 = Clock::now();
                 std::thread adapt_thr;   // the adaptive tier beside the commit and the draft (as in generate)
                 bool adapt_ok = true;
@@ -5506,6 +5519,7 @@ int main(int argc, char** argv) {
                 T = 1;
                 while (T < S_mtp && dprob[(size_t) T - 1] >= (float) o.spec_min_p) ++T;
             }
+            if (use_mtp && o.spec_cost && !first_window && T > 1) T = policy.choose_mtp(dprob.data(), T - 1);
             if (first_window) T = 1;
             bool from_sfx = false;
             int sfx_match = 0;
@@ -5547,6 +5561,8 @@ int main(int argc, char** argv) {
             }
             int a = 0;
             while (a < T - 1 && window[(size_t) a + 1] == outv[(size_t) a]) ++a;
+            // the MTP drafts' calibration (before the next draft overwrites `dprob`), with or without --spec-cost
+            if (use_mtp && !from_sfx && !first_window && T > 1) policy.observe_mtp_drafts(dprob.data(), T, a);
             if (first_window) {
                 first_window = false;
                 ttft_ms = std::chrono::duration<double, std::milli>(Clock::now() - t_start).count();

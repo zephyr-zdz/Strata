@@ -18,6 +18,12 @@ constexpr double kDecay = 0.97;       // lookup counts: older windows fade
 constexpr double kPriorQ[DraftPolicy::kBuckets] = {0.75, 0.88, 0.93, 0.96};
 constexpr double kPriorN = 4.0;
 constexpr int kProbes = 3;       // a lookup window size is tried this often before its guessed cost can veto it
+// --spec-cost: the MTP drafts' calibration. A bucket starts at its own probability (worth kPPriorN checked drafts)
+// and fades slowly, so a conversation's own acceptance takes over within a few hundred drafts.
+constexpr double kPPriorN = 6.0;
+constexpr double kPDecay = 0.995;
+constexpr double kRateAlpha = 0.05;   // EMA weight of a round in the throughput (lambda)
+constexpr int kWarmRounds = 8;        // rounds measured before the cost rule replaces the probability floor
 
 }  // namespace
 
@@ -81,11 +87,48 @@ DraftPolicy::Pick DraftPolicy::choose(int t_mtp, int lookup_k, int match) const 
     return p;
 }
 
+double DraftPolicy::draft_rate(float p) const {
+    const int b = std::clamp((int) (p * kPBins), 0, kPBins - 1);
+    return (p_ok_[b] + kPPriorN * (double) std::clamp(p, 0.0f, 1.0f)) / (p_n_[b] + kPPriorN);
+}
+
+double DraftPolicy::throughput() const {
+    return rate_ms_ > 0.0 ? rate_tok_ / rate_ms_ : 0.0;
+}
+
+int DraftPolicy::choose_mtp(const float* probs, int n_drafts) {
+    n_drafts = std::clamp(n_drafts, 0, max_t_ - 1);
+    const double lambda = throughput();
+    if (n_drafts == 0 || rounds_ < kWarmRounds || lambda <= 0.0 || ++calls_ % kProbeEvery == 0) return n_drafts + 1;
+    int best_t = 1;
+    double best = 1.0 - lambda * cost_ms(1);
+    double e = 1.0, reach = 1.0;   // expected committed tokens; the chance that every draft so far is accepted
+    for (int i = 1; i <= n_drafts; ++i) {
+        reach *= draft_rate(probs[i - 1]);
+        e += reach;
+        const double s = e - lambda * cost_ms(i + 1);
+        if (s > best) { best = s; best_t = i + 1; }
+    }
+    return best_t;
+}
+
+void DraftPolicy::observe_mtp_drafts(const float* probs, int t, int accepted) {
+    for (int i = 0; i < t - 1 && i <= accepted; ++i) {   // draft i was checked only if the ones before it held
+        const int b = std::clamp((int) (probs[i] * kPBins), 0, kPBins - 1);
+        p_ok_[b] = kPDecay * p_ok_[b] + (i < accepted ? 1.0 : 0.0);
+        p_n_[b] = kPDecay * p_n_[b] + 1.0;
+    }
+}
+
 void DraftPolicy::observe(bool lookup, int t, int accepted, int match, double round_ms) {
     t = std::clamp(t, 1, kMaxT);
     if (round_ms > 0) {
         cost_[t] = cost_n_[t] > 0 ? (1.0 - kCostAlpha) * cost_[t] + kCostAlpha * round_ms : round_ms;
         cost_n_[t] += 1.0;
+        const double got = accepted + 1.0;
+        rate_tok_ = rounds_ > 0 ? (1.0 - kRateAlpha) * rate_tok_ + kRateAlpha * got : got;
+        rate_ms_ = rounds_ > 0 ? (1.0 - kRateAlpha) * rate_ms_ + kRateAlpha * round_ms : round_ms;
+        ++rounds_;
     }
     if (lookup) {
         const int b = bucket(match);

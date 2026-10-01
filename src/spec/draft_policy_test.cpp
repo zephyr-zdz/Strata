@@ -58,6 +58,44 @@ int main() {
         for (int i = 0; i < 3; ++i) p.observe(true, 6, 5, 40, 3.0 * cost(6));   // it turns out very expensive
         check(!p.choose(4, 5, 40).lookup, "after the probes, the measured cost decides");
     }
+    // --spec-cost: the MTP window from calibrated draft probabilities and the measured cost per size
+    {
+        // a DDR4 PC: ~10 ms per window token; drafts that claim 0.6 are accepted 30% of the time, 0.95 ones 95%
+        DraftPolicy p(4);
+        const float lo[3] = {0.6f, 0.6f, 0.6f}, hi[3] = {0.95f, 0.95f, 0.95f};
+        for (int i = 0; i < 400; ++i) {
+            const bool ok = (i % 10) < 3;
+            p.observe_mtp_drafts(lo, 2, ok ? 1 : 0);
+            p.observe_mtp_drafts(hi, 4, (i % 20) == 0 ? 2 : 3);
+            p.observe(false, 2, ok ? 1 : 0, 0, cost(2));
+            p.observe(false, 1, 0, 0, cost(1));
+            p.observe(false, 3, 2, 0, cost(3));
+            p.observe(false, 4, 3, 0, cost(4));
+        }
+        check(p.draft_rate(0.6f) < 0.4 && p.draft_rate(0.95f) > 0.85, "calibration: 0.6 drafts ~0.3, 0.95 drafts ~0.95");
+        int full = 0, cut = 0;
+        for (int i = 0; i < 64; ++i) {
+            if (p.choose_mtp(lo, 3) == 1) ++cut;
+            if (p.choose_mtp(hi, 3) == 4) ++full;
+        }
+        check(cut >= 56, "overconfident, costly drafts: the window shrinks to the token alone");
+        check(full == 64, "reliable drafts: the whole window is kept");
+        check(p.choose_mtp(hi, 0) == 1, "no drafts: a window of one");
+    }
+    {
+        DraftPolicy p(4);
+        const float lo[3] = {0.6f, 0.6f, 0.6f};
+        check(p.choose_mtp(lo, 3) == 4, "before any round is measured: the floor's window");
+        for (int i = 0; i < 100; ++i) {
+            p.observe_mtp_drafts(lo, 4, 0);
+            p.observe(false, 4, 0, 0, cost(4));
+            p.observe(false, 1, 0, 0, cost(1));
+        }
+        int probes = 0;
+        for (int i = 0; i < 64; ++i) probes += p.choose_mtp(lo, 3) == 4;
+        check(probes == 64 / DraftPolicy::kProbeEvery, "every kProbeEvery-th call still measures the floor's window");
+        check(p.choose_mtp(lo, 9) <= 4, "never beyond the window cap");
+    }
     std::printf(g_fail ? "FAIL\n" : "PASS\n");
     return g_fail ? 1 : 0;
 }
