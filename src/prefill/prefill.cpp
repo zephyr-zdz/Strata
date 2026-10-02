@@ -1126,12 +1126,24 @@ bool Prefill::run(const int64_t* tokens, int64_t n, int64_t pos0, std::string& e
             }
         }
         if (hand_in_ == nullptr) gr_broadcast(m.emb, m.R, T, m.cs);
-        // ---- the PLE rows of the whole chunk, one batched SSD request (read ahead on a thread, see ple_gather)
-        if (ple_on) {
+        // ---- the PLE rows of the whole chunk, one batched SSD request (read ahead on a thread, see ple_gather).  They
+        // are first needed by layer 1's PLE block, so a chunk whose rows were not read ahead (the first one) starts
+        // reading them on a thread here and waits for them only there: the embedding and layer 0 run meanwhile (the
+        // first chunk's read was 279 ms of an 8K prompt with the GPU idle).  The same rows, uploaded before the same
+        // block: the same results.
+        static const bool ple_defer = [] {   // STRATA_PLE_DEFER=0: wait for the rows here, as before (the A/B)
+            const char* v = std::getenv("STRATA_PLE_DEFER");
+            return v == nullptr || std::atoi(v) != 0;
+        }();
+        if (ple_on && !ple_next.valid())
+            ple_next = std::async(std::launch::async, [&ple_gather, &ple_next_err, c0, b = ple_buf] {
+                return ple_gather(c0, b, ple_next_err);
+            });
+        bool ple_up = false;               // this chunk's rows are uploaded
+        auto ple_ready = [&]() -> bool {   // the chunk's rows into ple_emb, and the next chunk's read started
             const auto tp = Clock::now();
-            if (!ple_next.valid()) {
-                if (!ple_gather(c0, ple_buf, err)) return false;
-            } else if (!ple_next.get()) {
+            ple_up = true;
+            if (!ple_next.get()) {
                 err = ple_next_err;
                 return false;
             }
@@ -1145,7 +1157,9 @@ bool Prefill::run(const int64_t* tokens, int64_t n, int64_t pos0, std::string& e
             }
             ple_buf ^= 1;
             stats_.ms_ple += ms_since(tp);
-        }
+            return true;
+        };
+        if (ple_on && !ple_defer && !ple_ready()) return false;
         for (int64_t t = 0; t < T; ++t) { prev[0] = prev[1]; prev[1] = (int32_t) tokens[c0 + t]; }
         // ---- the QSA step records of every position in the chunk
         for (int64_t t = 0; t < T; ++t) strata::kernels::qsa_step_fill(m.steps_host.data() + t * strata::kernels::kStepCount, p0 + t, s);
@@ -1282,6 +1296,7 @@ bool Prefill::run(const int64_t* tokens, int64_t n, int64_t pos0, std::string& e
             core::progress_at("reading the prompt (batched): layer", l, p0);   // #251: a stall names layer and chunk
             const core::LayerView v(*m.wt, l);
             // ---- the PLE block at layer 1, token by token (its conv reads the previous tokens' rows)
+            if (l == 1 && ple_on && !ple_up && !ple_ready()) return false;
             if (l == 1 && ple_on && ple_batch) {
                 // the whole chunk at once, in sub-batches carved from the idle scratch region: the key and value
                 // projections as GEMMs (a token at a time they re-read ~52 MB of BF16 key per token on the IQ

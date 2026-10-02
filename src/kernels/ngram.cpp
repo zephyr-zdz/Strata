@@ -10,7 +10,10 @@
 #include <cerrno>
 #include <cmath>
 #include <cstdio>
+#include <algorithm>
+#include <cstdlib>
 #include <cstring>
+#include <thread>
 #if !defined(_WIN32)
 #include <sys/mman.h>
 #endif
@@ -371,7 +374,29 @@ bool PleTable::gather_batch(const uint32_t* rows, size_t n_tokens, float* out, s
         impl_->bytes_read += (uint64_t) n * impl_->rb;
         return true;
     }
-    for (size_t i = 0; i < n; ++i) read_row(rows[i], out + i * PLE_HEAD_DIM);
+    // The mapped table, on several threads: a prompt chunk needs 16 rows per token scattered across the 26.8 GB
+    // mapping (131,072 rows for 8,192 tokens), and a row whose page is not in RAM is an SSD read that one thread
+    // takes at a time - 279 ms of an 8K prompt's first chunk on a PCIe 3.0 PC, with the GPU waiting for it.  Each
+    // row is decoded by exactly one thread into its own place: the same floats.  STRATA_PLE_THREADS=1: one thread.
+    static const int threads = [] {
+        if (const char* v = std::getenv("STRATA_PLE_THREADS")) return std::max(1, std::min(64, std::atoi(v)));
+        return std::max(1, std::min(8, (int) std::thread::hardware_concurrency() / 2));
+    }();
+    const int nt = n >= 4096 ? threads : 1;
+    auto rows_of = [&](size_t a, size_t b) {
+        for (size_t i = a; i < b; ++i) {
+            if (impl_->data == nullptr || rows[i] >= impl_->n_rows) {
+                std::memset(out + i * PLE_HEAD_DIM, 0, (size_t) PLE_HEAD_DIM * sizeof(float));
+                continue;
+            }
+            impl_->decode(impl_->data + (size_t) rows[i] * impl_->rb, out + i * PLE_HEAD_DIM);
+        }
+    };
+    std::vector<std::thread> pool;
+    for (int t = 1; t < nt; ++t) pool.emplace_back(rows_of, n * (size_t) t / (size_t) nt, n * (size_t) (t + 1) / (size_t) nt);
+    rows_of(0, n / (size_t) nt);
+    for (std::thread& th : pool) th.join();
+    impl_->bytes_read += (uint64_t) n * impl_->rb;
     return true;
 }
 
