@@ -35,7 +35,8 @@ prompts and the coding prompt correctly. During requests it reads nothing from t
 | Checkpoint | `RadixArk/Qwen3.8-Flash-Next-NVFP4`, snapshot `7b719225242aacd3dbd3f9407468c2ee9a9d2594` (135.25 GB, 419 files, in the shared HF cache, read only). Its `model.safetensors.index.json` has the same 296,475 tensor names and the same file for each as the OrcaRouter checkpoint the fork targets, and the same `total_size`. |
 | n-gram table | ISTA-DASLab IQ4_NL shard (`Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf`, 28,800,138,432 B). The NVMe copy matched the HDD original in 64 sampled 1 MiB blocks. |
 | Expert profile | `data/expert-profile.bin` as shipped (24,576 ranked pairs) |
-| sha256 of the produced files | `bench/bw2-01/sha256.txt`, computed after the run at idle priority |
+| sha256 of the produced files | `bench/bw2-01/sha256.txt` (paths relative to `$OUT`). GGUF `b053fbd2a614cb74…`, `experts.bin` `6a0448305c60a7a3…`, embedding `e93ebfd564de7b9c…`, `mtp/rt/experts.bin` `09398406be61f1f5…` |
+| GGUF manifest | `radixark-nvfp4.manifest.json` records `"llama_cpp_commit": "b9cad8a…"`. That is wrong: it is this branch's HEAD at conversion time. `third_party/llama.cpp` is a plain copy, so `git -C` walked up to the engine's worktree. The llama.cpp actually used is `3cf0325`. Fixed in `nvfp4_convert.py` (the last commit on this branch); the manifest on disk predates the fix and was not regenerated (a 35-minute conversion). |
 
 ## Changes on this branch
 
@@ -154,7 +155,7 @@ engine's own (`/metrics`):
 - decode tok/s = generated / decode_ms
 - tok/round = generated / (generated - accepted drafts)
 
-Raw rows: `bench/bw2-01/results/record-*/results.json`.
+Raw rows: `bench/bw2-01/results/record-*/results.json`. In the first block (`record-code`) the `engine_mem` fields are all zero: the pid lookup matched its own shell. It was fixed before the random/zh block, and the footprint numbers come from that block and from `/proc/<pid>/status` read directly.
 
 | prompt | runs | prompt tokens | generated | prefill tok/s | client TTFT s | decode tok/s | TPOT ms | tok/round | draft accept |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
