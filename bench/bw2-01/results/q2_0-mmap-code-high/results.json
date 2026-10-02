@@ -1,0 +1,268 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "c4b32830c0661b36ecb25882f0fead8aaf1504f34ecef18b9ed6f0a8ed091df2",
+    "client_ttft_s": 0.21086404495872557,
+    "client_elapsed_s": 0.28742216498358175,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 59,
+      "completion_tokens": 16,
+      "total_tokens": 75,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959362.692575,
+      "duration_s": 0.3,
+      "finish": "length",
+      "prompt_tokens": 59,
+      "reused": 0,
+      "output_tokens": 16,
+      "engine_generated": 16,
+      "prompt_ms": 199.4,
+      "decode_ms": 85.5,
+      "decode_tok_s": 187.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 14,
+      "drafts_accepted": 11
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.1,
+    "text": "We need to respond to user: \"Reply with exactly the word READY.\" Need"
+  },
+  {
+    "label": "tokens-1024-run-1",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "720b2552e2566752bb9f3fce87545ed99804f68c29ba217b509a9c167d6da348",
+    "client_ttft_s": 0.4676642330014147,
+    "client_elapsed_s": 1.845769063977059,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959363.3506937,
+      "duration_s": 1.8,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 455.3,
+      "decode_ms": 1387.1,
+      "decode_tok_s": 184.6,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 191,
+      "drafts_accepted": 158
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 183.4,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely note code truncated at task_00025? It says def task_00025(value: int) -> int: return (value * 26 + 25) % 1 maybe truncated? Need discuss synthetic module. Need include deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Need maybe mention benchmark nonce? Could ignore or mention. Need ensure final >=600 words. Need maybe analyze pattern: task_n: (value*(n+1)+n) % 100003 for n=0..24, task_00025 maybe incomplete? It says % 1 maybe typo? Actually task_00025: return (value * 26 + 25) % 1? In code: def task_00025(value: int) -> int: return (value * 26 + 25) % 1. That would always 0. But likely truncated? It says % 1 maybe due line cut? Need discuss as written. Could mention if intended modulus "
+  },
+  {
+    "label": "tokens-1024-run-2",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "95b6f7bb7606d537e2f84d9998239e47f8bfbf20f2e4bf4ddc431f5120724bb0",
+    "client_ttft_s": 0.4645894749555737,
+    "client_elapsed_s": 1.8866616029990837,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959365.552491,
+      "duration_s": 1.9,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 451.6,
+      "decode_ms": 1431.0,
+      "decode_tok_s": 178.9,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 184,
+      "drafts_accepted": 151
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 183.6,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely mention truncated code? The module has functions task_00000 to task_00025, pattern (value * (i+1) + i) % 100003, except task_00025 line truncated: return (value * 26 + 25) % 1 maybe incomplete? Need discuss deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Need maybe note synthetic module, benchmark nonce. Need be careful: code as given has syntax error due to truncation? It says def task_00025(value: int) -> int: return (value * 26 + 25) % 1. Actually line ends with % 1? It shows % 1 maybe truncated? It says % 1 (not 100003). Could be incomplete? The prompt: \"def task_00025(value: int) -> int: return (value * 26 + 25) % 1\" maybe missing 00003? It ends with"
+  },
+  {
+    "label": "tokens-1024-run-3",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "ebb7a23df3b5e1342aa634602c3c4c52035fc7c26647974a234c4d5451fd0b79",
+    "client_ttft_s": 0.46678930503549054,
+    "client_elapsed_s": 1.9193565730238333,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959367.7933733,
+      "duration_s": 1.9,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 451.3,
+      "decode_ms": 1461.5,
+      "decode_tok_s": 175.2,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 177,
+      "drafts_accepted": 144
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 183.3,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely note code truncated at task_00025 return ... % 1? It says def task_00025(value: int) -> int: return (value * 26 + 25) % 1 maybe incomplete? Actually line: return (value * 26 + 25) % 1 maybe missing 00003? It shows % 1 maybe due truncation? Need discuss. Need include benchmark nonce? Probably not necessary but maybe mention. Need ensure final >=600 words. Need maybe analyze deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Could mention pattern: task_N computes (value*(N+1)+N) mod 100003 for N=0..24, and task_00025 maybe incomplete or typo. Need discuss synthetic module likely generated. Need maybe mention if modulo 1 then always 0? But likely intended 100003. Need be careful: code as given has task_00025 return (value * 26 + "
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "fc954e5615d3424567d0951ab5608e65abe484da58b54791185692248b4834ab",
+    "client_ttft_s": 1.0499805959989317,
+    "client_elapsed_s": 2.347939915023744,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959370.1043365,
+      "duration_s": 2.3,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 1031.8,
+      "decode_ms": 1307.2,
+      "decode_tok_s": 195.8,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 206,
+      "drafts_accepted": 170
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 183.4,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely note code truncated at task_00110? User says review synthetic Python module. Need discuss deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Need maybe mention pattern: task_N(value) = (value * (N+1) + N) % 100003 for N=0..96? Let's inspect: task_00000: *1+0. task_00001: *2+1. ... task_00096: *97+96. task_00097: *1+97 (not *98+97). task_00098: *2+98. So multiplier cycles? For 0-96 multiplier = index+1. For 97-110? task_00097 multiplier 1, task_00098 multiplier 2, task_00099 multiplier 3, task_00100 multiplier 4, task_0010"
+  },
+  {
+    "label": "tokens-4096-run-2",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "d84ad3c45e330b2b1091eebff8982ba5afa05a5764d7164e081c7f7cdcfcaa5b",
+    "client_ttft_s": 1.0470399709884077,
+    "client_elapsed_s": 2.376696552033536,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959372.8359923,
+      "duration_s": 2.4,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 1028.9,
+      "decode_ms": 1339.1,
+      "decode_tok_s": 191.2,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 200,
+      "drafts_accepted": 163
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 184.0,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely note code truncated at task_00110? User says review synthetic Python module. Need discuss deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Need maybe mention pattern: task_N(value) = (value * (N+1) + N) % 100003 for N=0..96? Let's inspect: task_00000: value*1+0. task_00001: *2+1. ... task_00096: *97+96. task_00097: *1+97 (not *98+97). task_00098: *2+98. task_00100: *4+100. So pattern changes after 96? It seems multiplier = (index % 96?)? Let's derive: For i 0..96: multiplier i+1, add i. For i 97..110: multiplier (i-96)? task_"
+  },
+  {
+    "label": "tokens-4096-run-3",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "1c7b4aeb41a1a74aa43ad36540765d6dd60d06cd821e41e92c81861119c5b252",
+    "client_ttft_s": 1.078820378985256,
+    "client_elapsed_s": 2.4023273549973965,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959375.5996222,
+      "duration_s": 2.4,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 1057.2,
+      "decode_ms": 1332.9,
+      "decode_tok_s": 192.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 197,
+      "drafts_accepted": 164
+    },
+    "vram_mib": 39114,
+    "mem_available_gib": 184.0,
+    "text": "We need answer user's request. Need produce detailed explanation of code above, at least 600 words. Need likely note code truncated at task_00110? User says review synthetic Python module. Need discuss deterministic integer transforms, modulo arithmetic, testing, naming, complexity, maintainability. Need maybe mention pattern: task_N(value) = (value * (N+1) + N) % 100003 for N=0..96? Let's inspect: task_00000: value*1+0. task_00001: *2+1. ... task_00096: *97+96. task_00097: *1+97 (not *98+97). task_00098: *2+98. task_00100: *4+100. So pattern changes after 96? It seems multiplier cycles 1..97? For task_00097 multiplier 1, offset 97. task_00100 multiplier 4 offset 100. So maybe multiplier = (index % "
+  }
+]

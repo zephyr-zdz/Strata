@@ -1,0 +1,154 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.10113253496820107,
+    "client_elapsed_s": 0.11686125001870096,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959354.1290812,
+      "duration_s": 0.1,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "engine_generated": 2,
+      "prompt_ms": 90.8,
+      "decode_ms": 24.3,
+      "decode_tok_s": 82.3,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.5,
+    "text": "READY"
+  },
+  {
+    "label": "tokens-1024-run-1",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "c7025fd0f894a4d7b149f5186d2dab8996d51b960b4d3e2f0477ff46ccbd48fd",
+    "client_ttft_s": 0.8257375180255622,
+    "client_elapsed_s": 2.681708445015829,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959354.5167468,
+      "duration_s": 2.7,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 810.5,
+      "decode_ms": 1865.0,
+      "decode_tok_s": 137.3,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 218,
+      "drafts_accepted": 113
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.3,
+    "text": "The narrative continues with a sudden shift in tone, moving from the disjointed list of keywords to a structured analysis of the underlying systems that govern these disparate elements. The initial chaos of terms like \"nonce,\" \"conflict,\" and \"steel\" suggests a breakdown in communication protocols, perhaps within a distributed network or a complex software architecture. In this context, the mention of \"Custom Contracts\" and \"grants\" implies a legal or financial framework attempting to impose order on the digital chaos. The reference to \"Stockholm\" and \"ela\" might hint at a specific geographic or linguistic origin for the data corruption, while \"Cass ett constructs classify\" points to a hierarchical organization of information that has failed to maintain its integrity.\n\nAs we delve deeper into the text, the presence of technical terms such as \"StackTrace,\" \"ILogger,\" and \"nullptr\" reveals that the core issue is likely a software bug or a memory management error. The \"Mal AMIL equality ways sentenced complete persist strokes\" sequence suggests that the system is struggling to maintain consistency across different modules. The \"developer ihad pixels INO training EVENTS\" fragment indicates that human intervention is required to debug the system, but the \"training\" aspect implies that automated learning algorithms are also involved in the process. The"
+  },
+  {
+    "label": "tokens-1024-run-2",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "3599a4df4afc13439a5e3505e0908dc4b5dbe61a14c5261849cab17dc248750d",
+    "client_ttft_s": 0.44219570397399366,
+    "client_elapsed_s": 2.3606011969968677,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959357.445582,
+      "duration_s": 2.4,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 426.6,
+      "decode_ms": 1927.5,
+      "decode_tok_s": 132.8,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 208,
+      "drafts_accepted": 105
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.1,
+    "text": "The narrative continues with a sudden shift in tone, moving from the disjointed list of keywords to a structured analysis of the underlying systems that govern digital interaction. The initial chaos of terms like \"nonce,\" \"conflict,\" and \"steel\" suggests a metaphorical framework for understanding how modern software architectures handle state and integrity. In this context, the \"Custom Contracts\" mentioned earlier are not merely legal documents but represent the rigid interfaces between disparate modules of a distributed system. When these contracts fail, as implied by the word \"invalid,\" the system experiences a cascade of errors, much like the \"soak\" and \"bath\" imagery might suggest a saturation of resources or a drowning of logic in unhandled exceptions.\n\nThe mention of \"Stockholm\" and \"ela\" alongside \"constructs\" and \"classify\" hints at a geographical or cultural layering of data. Perhaps the system is attempting to categorize user behavior based on regional norms, where \"roke factors\" (likely a typo for \"risk factors\") determine the security level of a transaction. The \"ubectl\" and \"ATORS\" fragments seem to be remnants of a corrupted database schema, where \"operators\" were meant to define the actions allowed within the \"Less Ens\" (Less Enforcement) environment"
+  },
+  {
+    "label": "tokens-1024-run-3",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "0c1edb0d13ce401adb4996a8aa808d3e66bbd148fd9f8f6b4eff2d2852f26245",
+    "client_ttft_s": 0.43554679001681507,
+    "client_elapsed_s": 2.315598271030467,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959360.0678658,
+      "duration_s": 2.3,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 419.8,
+      "decode_ms": 1889.2,
+      "decode_tok_s": 135.5,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 211,
+      "drafts_accepted": 110
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.0,
+    "text": "The narrative continues with a sudden shift in tone, moving from the disjointed list of keywords to a structured analysis of the underlying systems that govern digital interaction. The initial chaos of terms like \"nonce,\" \"conflict,\" and \"steel\" suggests a metaphorical framework for understanding how modern software architectures handle state and integrity. In this context, the \"benchmark nonce\" serves not merely as a random string but as a critical anchor point for verifying the authenticity of transactions within a distributed network. The mention of \"Dipl conflict\" hints at the geopolitical tensions that often underpin technological standards, where nations compete for dominance in areas such as encryption protocols and data sovereignty.\n\nAs we delve deeper into the technical aspects, the reference to \"Custom Contracts\" and \"grants\" highlights the legal and financial mechanisms that support open-source development and community-driven projects. These contracts are essential for defining the scope of work, ensuring that contributors are compensated fairly, and protecting intellectual property rights. The inclusion of \"community ada\" suggests a focus on Ada, a programming language known for its reliability and safety, often used in critical systems where failure is not an option. This juxtaposition with \"Eye dislike Reserved padding MOD invalid\" underscores the frustration developers face when dealing with legacy code or poorly designed interfaces that"
+  }
+]

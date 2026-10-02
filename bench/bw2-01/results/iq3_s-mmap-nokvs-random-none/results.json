@@ -1,0 +1,154 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.10038422199431807,
+    "client_elapsed_s": 0.11745911999605596,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790960655.5913553,
+      "duration_s": 0.1,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "engine_generated": 2,
+      "prompt_ms": 89.6,
+      "decode_ms": 25.9,
+      "decode_tok_s": 77.2,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "vram_mib": 55546,
+    "mem_available_gib": 168.0,
+    "text": "READY"
+  },
+  {
+    "label": "tokens-1024-run-1",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "c7025fd0f894a4d7b149f5186d2dab8996d51b960b4d3e2f0477ff46ccbd48fd",
+    "client_ttft_s": 0.8151021359954029,
+    "client_elapsed_s": 3.0201425720006227,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790960656.0487316,
+      "duration_s": 3.0,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 798.2,
+      "decode_ms": 2214.6,
+      "decode_tok_s": 115.6,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 215,
+      "drafts_accepted": 123
+    },
+    "vram_mib": 55546,
+    "mem_available_gib": 167.6,
+    "text": "The fragmented lexicon continues to cascade, a digital avalanche of semantic debris that defies linear narrative structure. It is as if the collective unconscious of the internet has been distilled into a chaotic stream of consciousness, where the boundaries between code, commerce, and culture dissolve into a singular, pulsating noise. The word \"Broadway\" hangs suspended in the air, a neon sign flickering in the rain, while \"fall\" suggests a descent not just of leaves, but of order itself. \"Into\" implies a transition, a crossing of thresholds, yet the destination remains obscured by the fog of \"eing,\" a typo or a fragment of a larger word, perhaps \"being\" or \"seeing,\" lost in the static.\n\n\"Distur\" evokes disturbance, a ripple in the calm surface of the data stream. \"Outbreak\" suggests a viral spread, not of disease, but of information, of memes, of ideas that replicate uncontrollably across networks. \"Unable\" stands as a stark admission of limitation, a barrier to comprehension. \"Fib\" hints at deception, a small lie woven into the fabric of truth. \"Recording\" captures the moment, freezing the chaos in amber, preserving the disarray for future analysis. \"Professor\" brings an authority"
+  },
+  {
+    "label": "tokens-1024-run-2",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "3599a4df4afc13439a5e3505e0908dc4b5dbe61a14c5261849cab17dc248750d",
+    "client_ttft_s": 0.42518765799468383,
+    "client_elapsed_s": 2.3129836909938604,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790960659.310637,
+      "duration_s": 2.3,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 409.4,
+      "decode_ms": 1897.3,
+      "decode_tok_s": 134.9,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 204,
+      "drafts_accepted": 117
+    },
+    "vram_mib": 55546,
+    "mem_available_gib": 167.4,
+    "text": "The fragmented lexicon continues to cascade, a digital avalanche of semantic debris that defies linear narrative structure. It is as if the collective unconscious of the internet has been distilled into a chaotic stream of consciousness, where the boundaries between code, commerce, and culture dissolve into a singular, pulsating noise. The word \"Broadway\" hangs suspended in the air, a neon sign flickering in the rain, while \"fall\" suggests a descent not just of leaves, but of order itself. Into this void, \"eing\" whispers, a fragment of a German verb, perhaps \"eingeben,\" to input, to enter, to become part of the machine. The disturbance is palpable, an outbreak of meaning that refuses to be contained by traditional syntax. Unable to fib, the text confesses its own incoherence, recording the professor\u2019s lecture on the nature of reality, where Halloween masks hide not faces, but the absence of identity. Commerce flows like blood through the veins of the city, bike lanes weaving through the gridlock of data packets.\n\nAs the stream progresses, the juxtaposition of \"Sound\" and \"districts\" evokes a sonic landscape, a cacophony of urban life where every street corner is a node in a vast network. The \""
+  },
+  {
+    "label": "tokens-1024-run-3",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "0c1edb0d13ce401adb4996a8aa808d3e66bbd148fd9f8f6b4eff2d2852f26245",
+    "client_ttft_s": 0.4269541609683074,
+    "client_elapsed_s": 2.374627157987561,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 256,
+      "total_tokens": 1280,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790960661.8805556,
+      "duration_s": 2.4,
+      "finish": "length",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 256,
+      "engine_generated": 256,
+      "prompt_ms": 409.9,
+      "decode_ms": 1957.1,
+      "decode_tok_s": 130.8,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 213,
+      "drafts_accepted": 114
+    },
+    "vram_mib": 55546,
+    "mem_available_gib": 167.1,
+    "text": "The fragmented lexicon continues to cascade, a digital avalanche of semantic debris that defies linear narrative structure. It is as if the collective unconscious of the internet has been distilled into a chaotic stream of consciousness, where the boundaries between code, commerce, and culture dissolve into a singular, pulsating noise. The word \"Broadway\" hangs suspended in the air, a neon sign flickering in the rain, while \"fall\" suggests a descent not just of leaves, but of order itself. Into this void, \"eing\" whispers, a fragment of a German verb, perhaps \"eingeben,\" to input, to enter, to become part of the machine. Disturbance is the primary state; \"distur\" cuts through the static, a jagged edge of anxiety. The \"outbreak\" is not biological but informational, a viral spread of meaninglessness that infects every node in the network. Unable to contain the flow, the system \"fib\" s, constructing false narratives to make sense of the chaos, \"Recording\" every glitch, every stutter, every moment of hesitation. The \"Professor\" stands at the podium, lecturing on \"Rel\" ationships, on the \"Halloween\" of the digital soul, where masks are worn not to hide"
+  }
+]

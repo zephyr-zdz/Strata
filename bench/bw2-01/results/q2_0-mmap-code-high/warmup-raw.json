@@ -1,0 +1,332 @@
+{
+  "chunks": [
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": "We"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " need"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " to"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " respond"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " to"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " user"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": ":"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " \""
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": "Reply"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " with"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " exactly"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " the"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " word"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " READY"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": ".\""
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {
+            "reasoning_content": " Need"
+          },
+          "finish_reason": null
+        }
+      ]
+    },
+    {
+      "id": "chatcmpl-6d3f84d65dd64044a81b44c6",
+      "object": "chat.completion.chunk",
+      "created": 1790959362,
+      "model": "qwen3.8-flash-next-q2_0",
+      "choices": [
+        {
+          "index": 0,
+          "delta": {},
+          "finish_reason": "length"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 59,
+        "completion_tokens": 16,
+        "total_tokens": 75,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 59,
+        "prompt_ms": 199.4,
+        "prompt_per_token_ms": 3.38,
+        "prompt_per_second": 295.9,
+        "predicted_n": 16,
+        "predicted_ms": 85.5,
+        "predicted_per_token_ms": 5.344,
+        "predicted_per_second": 187.1,
+        "draft_n": 14,
+        "draft_n_accepted": 11
+      }
+    }
+  ],
+  "row": {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "c4b32830c0661b36ecb25882f0fead8aaf1504f34ecef18b9ed6f0a8ed091df2",
+    "client_ttft_s": 0.21086404495872557,
+    "client_elapsed_s": 0.28742216498358175,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 59,
+      "completion_tokens": 16,
+      "total_tokens": 75,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790959362.692575,
+      "duration_s": 0.3,
+      "finish": "length",
+      "prompt_tokens": 59,
+      "reused": 0,
+      "output_tokens": 16,
+      "engine_generated": 16,
+      "prompt_ms": 199.4,
+      "decode_ms": 85.5,
+      "decode_tok_s": 187.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 14,
+      "drafts_accepted": 11
+    },
+    "vram_mib": 39112,
+    "mem_available_gib": 183.1,
+    "text": "We need to respond to user: \"Reply with exactly the word READY.\" Need"
+  }
+}
