@@ -1,0 +1,26 @@
+{
+ "exe": "/home/zephyr-zdz/Projects/Strata-nvfp4/build/strata",
+ "args": [
+  "--pack", "/data/users/zephyr-zdz/models/strata-nvfp4/packs/radixark-nvfp4",
+  "--native", "/data/users/zephyr-zdz/models/strata-nvfp4/models/radixark-nvfp4.gguf",
+  "--native-dense-gguf", "/data/users/zephyr-zdz/models/strata-nvfp4/models/radixark-nvfp4.gguf",
+  "--ple-gguf", "/home/zephyr-zdz/models-ssd/strata/Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+  "--embd-gguf", "/data/users/zephyr-zdz/models/strata-nvfp4/models/token-embd-bf16.gguf",
+  "--mtp", "/data/users/zephyr-zdz/models/strata-nvfp4/mtp/rt",
+  "--spec", "4", "--spec-min-p", "0.5",
+  "--prefill", "auto",
+  "--expert-profile", "/home/zephyr-zdz/Projects/Strata-nvfp4/data/expert-profile.bin",
+  "--expert-cache", "auto",
+  "--max-context", "262144",
+  "--kv", "int8",
+  "--mmap-experts"
+ ],
+ "cwd": "/home/zephyr-zdz/Projects/Strata-nvfp4",
+ "tokenizer": "/data/users/zephyr-zdz/models/strata-nvfp4/packs/radixark-nvfp4/tokenizer",
+ "model_name": "qwen3.8-flash-next-nvfp4",
+ "log": "/scratch/users/zephyr-zdz/strata-nvfp4/engine.log",
+ "lib_dirs": ["/usr/local/cuda-13.1/lib64"],
+ "gpu": 1,
+ "host": "127.0.0.1",
+ "anthropic_thinking": "on_request"
+}
