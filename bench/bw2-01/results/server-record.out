@@ -1,0 +1,146 @@
+loading the model (the first start takes a minute or two) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] still starting (20 s) - please wait ...
+[strata] loading the experts into RAM (about 74 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the browser opens when it is ready.
+[strata] filling the GPU's expert cache (24573 experts, 63.28 GiB of VRAM) ...
+[strata] still starting (64 s) - please wait ...
+[strata] still starting (84 s) - please wait ...
+[strata] still starting (104 s) - please wait ...
+[strata] still starting (124 s) - please wait ...
+[strata] still starting (144 s) - please wait ...
+[strata] still starting (164 s) - please wait ...
+[strata] still starting (184 s) - please wait ...
+[strata] still starting (204 s) - please wait ...
+[strata] still starting (224 s) - please wait ...
+[strata] still starting (244 s) - please wait ...
+[strata] still starting (264 s) - please wait ...
+[strata] still starting (284 s) - please wait ...
+[strata] still starting (304 s) - please wait ...
+[strata] still starting (324 s) - please wait ...
+[strata] still starting (344 s) - please wait ...
+[strata] almost ready ...
+ready: http://127.0.0.1:8097/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 262144 tokens, API key required)
+       open http://127.0.0.1:8097/ in a browser to chat; close this window to stop the model
+[strata] done: 2 tokens in 0 s (78.9 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 19 cached 0 output 2 prompt_read 112 ms total 156 ms prefill 170.3 tok/s decode 45.1 tok/s
+[strata] answering: 70 of max 3000 tokens, 154.2 tok/s, 1 s
+[strata] answering: 241 of max 3000 tokens, 164.7 tok/s, 2 s
+[strata] answering: 393 of max 3000 tokens, 159.0 tok/s, 3 s
+[strata] answering: 559 of max 3000 tokens, 160.8 tok/s, 4 s
+[strata] answering: 755 of max 3000 tokens, 168.4 tok/s, 5 s
+[strata] answering: 941 of max 3000 tokens, 171.2 tok/s, 6 s
+[strata] answering: 1109 of max 3000 tokens, 170.5 tok/s, 7 s
+[strata] done: 1185 tokens in 8 s (169.2 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 1024 cached 0 output 1185 prompt_read 540 ms total 7553 ms prefill 1895.1 tok/s decode 169.0 tok/s
+[strata] answering: 88 of max 3000 tokens, 160.0 tok/s, 1 s
+[strata] answering: 250 of max 3000 tokens, 160.6 tok/s, 2 s
+[strata] answering: 423 of max 3000 tokens, 165.4 tok/s, 3 s
+[strata] answering: 583 of max 3000 tokens, 163.6 tok/s, 4 s
+[strata] answering: 753 of max 3000 tokens, 164.7 tok/s, 5 s
+[strata] answering: 910 of max 3000 tokens, 163.0 tok/s, 6 s
+[strata] answering: 1083 of max 3000 tokens, 164.5 tok/s, 7 s
+[strata] answering: 1240 of max 3000 tokens, 163.2 tok/s, 8 s
+[strata] done: 1257 tokens in 8 s (163.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 1024 cached 0 output 1257 prompt_read 444 ms total 8151 ms prefill 2308.3 tok/s decode 163.1 tok/s
+[strata] answering: 92 of max 3000 tokens, 164.8 tok/s, 1 s
+[strata] answering: 267 of max 3000 tokens, 170.2 tok/s, 2 s
+[strata] answering: 458 of max 3000 tokens, 177.6 tok/s, 3 s
+[strata] answering: 626 of max 3000 tokens, 174.4 tok/s, 4 s
+[strata] answering: 786 of max 3000 tokens, 170.8 tok/s, 5 s
+[strata] answering: 967 of max 3000 tokens, 172.5 tok/s, 6 s
+[strata] answering: 1121 of max 3000 tokens, 169.5 tok/s, 7 s
+[strata] answering: 1306 of max 3000 tokens, 171.2 tok/s, 8 s
+[strata] answering: 1474 of max 3000 tokens, 170.8 tok/s, 9 s
+[strata] done: 1504 tokens in 9 s (171.5 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 1024 cached 0 output 1504 prompt_read 441 ms total 9220 ms prefill 2321.2 tok/s decode 171.3 tok/s
+[strata] reading the prompt: 32,761 of 32,768 tokens, 5 s so far
+[strata] answering: 65 of max 3000 tokens, 153.3 tok/s, 6 s
+[strata] answering: 235 of max 3000 tokens, 164.7 tok/s, 7 s
+[strata] answering: 390 of max 3000 tokens, 160.0 tok/s, 8 s
+[strata] answering: 558 of max 3000 tokens, 162.0 tok/s, 9 s
+[strata] answering: 726 of max 3000 tokens, 163.3 tok/s, 10 s
+[strata] answering: 872 of max 3000 tokens, 159.7 tok/s, 11 s
+[strata] answering: 1056 of max 3000 tokens, 163.3 tok/s, 12 s
+[strata] answering: 1215 of max 3000 tokens, 162.6 tok/s, 13 s
+[strata] done: 1261 tokens in 13 s (161.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 32768 cached 0 output 1261 prompt_read 5584 ms total 13411 ms prefill 5868.0 tok/s decode 161.1 tok/s
+[strata] reading the prompt: 32,761 of 32,768 tokens, 5 s so far
+[strata] answering: 68 of max 3000 tokens, 161.8 tok/s, 6 s
+[strata] answering: 230 of max 3000 tokens, 161.7 tok/s, 7 s
+[strata] answering: 396 of max 3000 tokens, 162.4 tok/s, 8 s
+[strata] answering: 561 of max 3000 tokens, 163.0 tok/s, 9 s
+[strata] answering: 725 of max 3000 tokens, 162.9 tok/s, 10 s
+[strata] answering: 876 of max 3000 tokens, 160.5 tok/s, 11 s
+[strata] answering: 1007 of max 3000 tokens, 155.7 tok/s, 12 s
+[strata] done: 1097 tokens in 13 s (152.9 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 32768 cached 0 output 1097 prompt_read 5622 ms total 12807 ms prefill 5828.9 tok/s decode 152.7 tok/s
+[strata] reading the prompt: 32,761 of 32,768 tokens, 5 s so far
+[strata] answering: 67 of max 3000 tokens, 161.1 tok/s, 6 s
+[strata] answering: 238 of max 3000 tokens, 167.5 tok/s, 7 s
+[strata] answering: 419 of max 3000 tokens, 172.4 tok/s, 8 s
+[strata] answering: 590 of max 3000 tokens, 171.3 tok/s, 9 s
+[strata] answering: 716 of max 3000 tokens, 161.1 tok/s, 10 s
+[strata] answering: 877 of max 3000 tokens, 161.0 tok/s, 11 s
+[strata] answering: 1025 of max 3000 tokens, 158.9 tok/s, 12 s
+[strata] done: 1040 tokens in 12 s (158.0 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 32768 cached 0 output 1040 prompt_read 5656 ms total 12247 ms prefill 5793.2 tok/s decode 157.8 tok/s
+[strata] done: 2 tokens in 0 s (126.4 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 19 cached 0 output 2 prompt_read 83 ms total 107 ms prefill 228.4 tok/s decode 82.7 tok/s
+[strata] answering: 87 of max 3000 tokens, 161.3 tok/s, 1 s
+[strata] answering: 240 of max 3000 tokens, 154.9 tok/s, 2 s
+[strata] answering: 380 of max 3000 tokens, 148.2 tok/s, 3 s
+[strata] answering: 519 of max 3000 tokens, 145.4 tok/s, 4 s
+[strata] answering: 689 of max 3000 tokens, 150.5 tok/s, 5 s
+[strata] answering: 834 of max 3000 tokens, 149.2 tok/s, 6 s
+[strata] answering: 976 of max 3000 tokens, 148.0 tok/s, 7 s
+[strata] answering: 1198 of max 3000 tokens, 157.7 tok/s, 8 s
+[strata] answering: 1446 of max 3000 tokens, 168.2 tok/s, 9 s
+[strata] answering: 1698 of max 3000 tokens, 176.9 tok/s, 10 s
+[strata] answering: 1968 of max 3000 tokens, 185.4 tok/s, 11 s
+[strata] answering: 2128 of max 3000 tokens, 183.2 tok/s, 12 s
+[strata] done: 2188 tokens in 13 s (181.0 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 1024 cached 0 output 2188 prompt_read 459 ms total 12559 ms prefill 2230.0 tok/s decode 180.8 tok/s
+[strata] answering: 112 of max 3000 tokens, 150.4 tok/s, 1 s
+[strata] answering: 279 of max 3000 tokens, 159.4 tok/s, 2 s
+[strata] answering: 443 of max 3000 tokens, 160.7 tok/s, 3 s
+[strata] done: 465 tokens in 3 s (161.1 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 70 cached 0 output 465 prompt_read 250 ms total 3145 ms prefill 279.8 tok/s decode 160.6 tok/s
+[strata] answering: 159 of max 1024 tokens, 195.1 tok/s, 1 s
+[strata] done: 234 tokens in 1 s (201.1 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 101 cached 0 output 234 prompt_read 183 ms total 1355 ms prefill 552.7 tok/s decode 199.6 tok/s
+[strata] answering: 134 of max 1024 tokens, 172.6 tok/s, 1 s
+[strata] done: 210 tokens in 1 s (189.7 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 61 cached 0 output 210 prompt_read 214 ms total 1330 ms prefill 284.7 tok/s decode 188.2 tok/s
+[strata] answering: 167 of max 1024 tokens, 204.0 tok/s, 1 s
+[strata] done: 391 tokens in 2 s (216.4 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 90 cached 0 output 391 prompt_read 181 ms total 1997 ms prefill 496.8 tok/s decode 215.3 tok/s
+[strata] answering: 164 of max 1024 tokens, 216.6 tok/s, 1 s
+[strata] done: 263 tokens in 1 s (223.9 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 69 cached 0 output 263 prompt_read 243 ms total 1427 ms prefill 283.4 tok/s decode 222.2 tok/s
+[strata] answering: 166 of max 1024 tokens, 210.3 tok/s, 1 s
+[strata] done: 254 tokens in 1 s (219.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 144 cached 0 output 254 prompt_read 200 ms total 1367 ms prefill 718.2 tok/s decode 217.7 tok/s
+[strata] answering: 156 of max 1024 tokens, 190.8 tok/s, 1 s
+[strata] answering: 385 of max 1024 tokens, 210.8 tok/s, 2 s
+[strata] done: 420 tokens in 2 s (213.0 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 91 cached 0 output 420 prompt_read 183 ms total 2164 ms prefill 497.0 tok/s decode 212.0 tok/s
+[strata] answering: 179 of max 1024 tokens, 217.4 tok/s, 1 s
+[strata] done: 244 tokens in 1 s (223.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 77 cached 0 output 244 prompt_read 170 ms total 1271 ms prefill 453.2 tok/s decode 221.5 tok/s
+[strata] answering: 149 of max 1024 tokens, 183.4 tok/s, 1 s
+[strata] answering: 366 of max 1024 tokens, 201.2 tok/s, 2 s
+[strata] done: 455 tokens in 2 s (209.2 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 106 cached 0 output 455 prompt_read 182 ms total 2365 ms prefill 582.3 tok/s decode 208.4 tok/s
+[strata] done: 92 tokens in 1 s (151.2 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 36 cached 0 output 92 prompt_read 144 ms total 761 ms prefill 249.9 tok/s decode 149.1 tok/s
+[strata] done: 101 tokens in 1 s (189.4 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 47 cached 0 output 101 prompt_read 171 ms total 713 ms prefill 275.5 tok/s decode 186.4 tok/s
+[strata] done: 151 tokens in 1 s (208.0 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 74 cached 0 output 151 prompt_read 166 ms total 901 ms prefill 445.0 tok/s decode 205.5 tok/s
+[strata] answering: 155 of max 3000 tokens, 179.8 tok/s, 1 s
+[strata] answering: 330 of max 3000 tokens, 176.3 tok/s, 2 s
+[strata] answering: 501 of max 3000 tokens, 173.6 tok/s, 3 s
+[strata] done: 663 tokens in 4 s (171.1 tok/s) (stop, cancel=False), expert cache 100.0% hit
+[strata] request prompt 32 cached 0 output 663 prompt_read 135 ms total 4019 ms prefill 237.7 tok/s decode 170.7 tok/s

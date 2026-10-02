@@ -1,0 +1,2 @@
+model.language_model.embed_tokens.weight: 248320 x 2560 BF16, 1.27 GB
+wrote /data/users/zephyr-zdz/models/strata-nvfp4/models/token-embd-bf16.gguf (header 288 B)

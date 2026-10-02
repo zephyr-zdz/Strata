@@ -1,0 +1,57 @@
+{
+  "service": "strata",
+  "model": "qwen3.8-flash-next-nvfp4",
+  "loaded": true,
+  "auto_load": true,
+  "structured_output": {
+    "formats": [
+      "json_object",
+      "json_schema"
+    ],
+    "method": "prompt_and_validate",
+    "constrained_decoding": false,
+    "stream_buffered": true
+  },
+  "engine": "0.1.35",
+  "started": 1790969075,
+  "uptime_s": 32,
+  "cache_max_tokens": 262144,
+  "context": {
+    "native": 262144,
+    "max_positions": 262144
+  },
+  "concurrency": {
+    "serving": 1,
+    "requested": 1
+  },
+  "dialects": [
+    "/v1/chat/completions",
+    "/v1/messages"
+  ],
+  "vision": {
+    "enabled": false,
+    "available": false,
+    "error": null
+  },
+  "activity": {
+    "requests": 0,
+    "in_flight": 0,
+    "last_request_at": null
+  },
+  "last_timings": null,
+  "machine": {
+    "at": 1790969107,
+    "gpu": {
+      "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "used_mib": 76827.0,
+      "total_mib": 97887.0,
+      "util_pct": 0,
+      "temp_c": 59,
+      "power_w": 16.633
+    },
+    "ram": {
+      "used_gib": 38.9,
+      "total_gib": 245.1
+    }
+  }
+}

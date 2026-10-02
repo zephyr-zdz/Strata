@@ -1,0 +1,387 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.1339215140324086,
+    "client_elapsed_s": 0.15939050901215523,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969107.728767,
+      "duration_s": 0.2,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "engine_generated": 2,
+      "prompt_ms": 111.6,
+      "decode_ms": 44.3,
+      "decode_tok_s": 45.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "prefill_tok_s": 170.2508960573477,
+    "decode_tok_s": 45.146726862302486,
+    "tokens_per_round": null,
+    "draft_accept": 1.0,
+    "disk_read_mb": {
+      "nvme0n1": 1.7,
+      "sda": 0.0
+    },
+    "vram_mib": 76210,
+    "mem_available_gib": 205.9,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "READY"
+  },
+  {
+    "label": "tokens-1024-run-1",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "bd6986952b9f5af4d2aa148298fc55bb5504e20ba98db481c69fedc4a1fffb8d",
+    "client_ttft_s": 0.5533852239605039,
+    "client_elapsed_s": 7.558008666965179,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 1185,
+      "total_tokens": 2209,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969108.2610424,
+      "duration_s": 7.6,
+      "finish": "stop",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 1185,
+      "engine_generated": 1185,
+      "prompt_ms": 540.3,
+      "decode_ms": 7013.3,
+      "decode_tok_s": 169.0,
+      "hit_rate": 1.0,
+      "ram_blobs": 17,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 1063,
+      "drafts_accepted": 703
+    },
+    "prefill_tok_s": 1895.243383305571,
+    "decode_tok_s": 168.96468139107125,
+    "tokens_per_round": 2.45850622406639,
+    "draft_accept": 0.6613358419567262,
+    "disk_read_mb": {
+      "nvme0n1": 98.3,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.6,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module presents a series of deterministic integer transformation functions, labeled sequentially from `task_00000` to `task_00026`. At first glance, the code appears to be a collection of isolated mathematical operations, but a deeper analysis reveals a highly structured, parametric pattern that serves as an excellent case study in algorithmic consistency, modular arithmetic, and software maintainability. The core logic of each function is identical in structure, differing only in specific integer constants, which suggests that this module is likely generated programmatically or serves as a benchmark for testing computational consistency across a range of parameters.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nThe fundamental operation in every function is a linear transformation followed by a modulo operation. The general form of the transformation can be expressed as:\n\n$$ f_n(x) = (x \\cdot (n + 1) + n) \\pmod{100003} $$\n\nwhere $n$ is the integer suffix of the function name (e.g., for `task_00005`, $n=5$). This formula combines multiplication and addition before applying the modulo operator. The choice of the modulus, $100003$, is significant. It is a prime number, which is a common choice in cryptographic and hashing contexts because it ensures that the multiplicative group modulo $p$ is cyclic and that every non-zero element has a multiplicative inverse. This property prevents certain types of collisions and ensures that the distribution of outputs is more uniform, assuming the inputs are uniformly distributed.\n\nThe deterministic nature of these transforms means that for any given input `value`, the output will always be the same, regardless of when or where the code is executed. This predictability is crucial for testing, caching, and reproducible research. The linear nature of the transform ($ax + b$) ensures that the computation is $O(1)$ in time complexity, making it extremely efficient even for large inputs, provided the input fits within the standard integer limits of the Python interpreter (which handles arbitrary-precision integers, though performance may degrade for extremely large numbers).\n\n### Naming Conventions and Code Structure\n\nThe naming convention `task_XXXXX` is highly systematic. The five-digit suffix corresponds directly to the parameter $n$ in the formula. This explicit mapping between the function name and its internal logic enhances readability and debuggability. If a developer encounters an error in `task_00012`, they can immediately infer that the multiplier is $13$ and the addend is $12$, without needing to inspect the function body. This self-documenting aspect is a hallmark of good code design, especially in generated code or benchmark suites where hundreds of similar functions might exist.\n\nHowever, the code suffers from a lack of abstraction. Repeating the same logic 27 times violates the DRY (Don't Repeat Yourself) principle. A more maintainable approach would be to define a single factory function or a class that generates these tasks dynamically. For example:\n\n```python\ndef make_task(n: int):\n    def task(value: int) -> int:\n        return (value * (n + 1) + n) % 100003\n    return task\n\n# Generate tasks\ntasks = {f\"task_{i:05d}\": make_task(i) for i in range(27)}\n```\n\nThis approach reduces code duplication, minimizes the risk of copy-paste errors, and makes it easier to modify the underlying logic (e.g., changing the modulus) in one place.\n\n### Testing and Validation\n\nTesting such a module requires verifying both the correctness of the mathematical formula and the consistency of the implementation. Unit tests should cover edge cases, such as:\n1. **Zero Input**: `task_00000(0)` should return `0`.\n2. **Negative Inputs**: Python’s modulo operator handles negative numbers differently than some other languages (it returns a non-negative result). For example, `(-1 * 2 + 1) % 100003` should yield `100002`.\n3. **Large Inputs**: Since Python supports arbitrary-precision integers, testing with very large numbers ensures no overflow issues occur.\n4. **Boundary Conditions**: Values close to the modulus, such as `100002` and `100003`, should be tested to ensure the modulo operation behaves as expected.\n\nProperty-based testing (using libraries like `hypothesis`) could also be employed to verify that the output always lies within the range `[0, 100002]` for any integer input.\n\n### Complexity and Maintainability\n\nThe time complexity of each function is $O(1)$, as it involves a constant number of arithmetic operations. The space complexity is also $O(1)$, as no additional data structures are used. However, the maintainability of the current implementation is low due to code duplication. If the modulus needs to be changed from `100003` to another prime, every function must be edited individually, increasing the risk of human error. Refactoring into a parameterized function or a class-based approach would significantly improve maintainability.\n\nIn conclusion, while the module is functionally correct and efficient, it serves as a prime example of how generated code can lack elegance. The deterministic transforms and use of a prime modulus are mathematically sound, but the repetitive structure highlights the importance of abstraction in software engineering. By consolidating the logic into a single, parameterized function, developers can achieve the same functionality with greater clarity, reduced redundancy, and improved long-term maintainability."
+  },
+  {
+    "label": "tokens-1024-run-2",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "39cd04d743efdcc127f1595d3a6672b905053c74be369a78213d51f9eeabd21a",
+    "client_ttft_s": 0.45686755201313645,
+    "client_elapsed_s": 8.155654972011689,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 1257,
+      "total_tokens": 2281,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969116.1848695,
+      "duration_s": 8.2,
+      "finish": "stop",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 1257,
+      "engine_generated": 1257,
+      "prompt_ms": 443.6,
+      "decode_ms": 7707.5,
+      "decode_tok_s": 163.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 3,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 1103,
+      "drafts_accepted": 711
+    },
+    "prefill_tok_s": 2308.385933273219,
+    "decode_tok_s": 163.0879013947454,
+    "tokens_per_round": 2.302197802197802,
+    "draft_accept": 0.6446056210335449,
+    "disk_read_mb": {
+      "nvme0n1": 67.2,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.7,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module presents a series of deterministic integer transformation functions, labeled sequentially from `task_00000` to `task_00026`. At first glance, the code appears to be a collection of isolated mathematical operations, but a deeper analysis reveals a highly structured, parametric pattern that serves as an excellent case study in algorithmic consistency, modular arithmetic, and software maintainability. The core logic of each function is identical in structure, differing only in specific integer constants, which suggests that this module is likely generated programmatically or serves as a benchmark for testing computational consistency across a range of parameters.\n\n### Deterministic Integer Transforms and Mathematical Structure\n\nEach function accepts a single integer argument, `value`, and returns an integer result. The transformation follows the linear congruential form: $f(x) = (x \\cdot a + b) \\pmod m$. In this specific module, the modulus $m$ is consistently set to `100003`, a prime number. The multiplier $a$ and the additive constant $b$ vary systematically with the function index. For `task_00000`, $a=1$ and $b=0$; for `task_00001`, $a=2$ and $b=1$; and generally, for `task_0000n`, the multiplier is $n+1$ and the additive constant is $n$. This creates a predictable sequence of linear transformations.\n\nThe use of a prime modulus is significant in computer science, particularly in cryptography and hashing algorithms. Prime moduli ensure that the multiplicative group of integers modulo $m$ is cyclic, which can prevent certain types of collisions and ensure better distribution of results if these functions were used as hash functions. However, in this context, the primary purpose seems to be deterministic testing. Because the operations are purely arithmetic and deterministic, the same input will always produce the same output, regardless of the system architecture or execution environment, provided that integer overflow is handled correctly (which Python handles automatically via arbitrary-precision integers).\n\n### Modulo Arithmetic and Boundary Conditions\n\nThe modulo operation `% 100003` ensures that the output is always constrained within the range $[0, 100002]$. This is crucial for preventing unbounded growth of integer values, which could lead to performance degradation or memory issues in long-running processes. By bounding the output, the functions become suitable for use in systems where fixed-size integer representations are required, such as in certain hardware simulations or cryptographic primitives.\n\nIt is worth noting that while Python’s integers are arbitrary-precision, the modulo operation effectively simulates fixed-width arithmetic behavior. For very large inputs, the intermediate multiplication `value * a` could become computationally expensive, but the modulo operation reduces the result back to a manageable size. This pattern is common in pseudo-random number generators (PRNGs), specifically Linear Congruential Generators (LCGs), where the state is updated using a similar formula.\n\n### Testing and Verification\n\nFrom a testing perspective, this module is ideal for unit testing and regression testing. Since the logic is simple and deterministic, it is easy to write test cases that verify the correctness of each function. For example, one could test edge cases such as `value = 0`, `value = 1`, and `value = 100002` (the maximum value before wrapping). Additionally, one could test negative inputs, as Python’s modulo operator behaves differently for negative numbers compared to some other languages (e.g., C or Java), always returning a non-negative result when the divisor is positive. This consistency is a feature of Python that simplifies cross-platform testing.\n\nAutomated testing frameworks could iterate through all 27 functions, applying a set of predefined inputs and comparing the outputs against expected values calculated independently. This would ensure that no function has been accidentally modified or corrupted. The sequential naming convention (`task_00000` to `task_00026`) facilitates this automation, as test scripts can dynamically generate function names and call them in a loop.\n\n### Naming Conventions and Maintainability\n\nThe naming convention is strictly numerical and sequential. While this is efficient for machine-generated code, it is poor for human readability and maintainability. A developer reading this code would not immediately understand the purpose of `task_00015` without inspecting its body. A more maintainable approach would be to use a single parameterized function, such as `def transform(value: int, multiplier: int, addend: int) -> int`, and then create a dictionary or list of parameters for each task. This would reduce code duplication, make the module easier to update, and allow for dynamic configuration.\n\nHowever, if these functions are intended to be used as distinct entry points in a benchmarking suite, the current structure might be intentional to avoid function call overhead or to allow for individual profiling. In such cases, the lack of abstraction is a trade-off for performance and isolation.\n\n### Complexity and Performance\n\nThe time complexity of each function is $O(1)$, as it involves a constant number of arithmetic operations. The space complexity is also $O(1)$, as no additional data structures are used. The performance is dominated by the cost of integer multiplication and modulo operations, which are highly optimized in modern Python interpreters. For large-scale applications, if these functions are called millions of times, the overhead of Python’s function call mechanism might become significant. In such scenarios, vectorized operations using libraries like NumPy or compiled extensions would be more efficient.\n\n### Conclusion\n\nIn summary, this module is a well-structured example of deterministic linear transformations under modulo arithmetic. It demonstrates key concepts in computer science, including modular arithmetic, deterministic computation, and systematic code generation. While the current implementation prioritizes isolation and simplicity, it could be improved for maintainability by reducing code duplication through parameterization. Nevertheless, as a benchmark or test suite, it effectively serves its purpose by providing a clear, predictable, and easily verifiable set of computational tasks."
+  },
+  {
+    "label": "tokens-1024-run-3",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "aaceca2fdbb99164c9a7b8dcd9677b6d9e6e6065b5bd0deb894aff21775e1c18",
+    "client_ttft_s": 0.4545932399923913,
+    "client_elapsed_s": 9.224601236986928,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 1504,
+      "total_tokens": 2528,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969124.7061877,
+      "duration_s": 9.2,
+      "finish": "stop",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 1504,
+      "engine_generated": 1504,
+      "prompt_ms": 441.2,
+      "decode_ms": 8778.8,
+      "decode_tok_s": 171.3,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 1350,
+      "drafts_accepted": 901
+    },
+    "prefill_tok_s": 2320.9428830462375,
+    "decode_tok_s": 171.32182074998863,
+    "tokens_per_round": 2.494195688225539,
+    "draft_accept": 0.6674074074074074,
+    "disk_read_mb": {
+      "nvme0n1": 59.4,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.6,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module presents a series of deterministic integer transformation functions, labeled sequentially from `task_00000` to `task_00026`. At first glance, the code appears to be a collection of isolated mathematical operations, but a deeper analysis reveals a highly structured, parametric pattern that serves as an excellent case study in algorithmic consistency, modular arithmetic, and software maintainability. The core logic of each function is identical in structure, differing only in specific integer constants, which suggests that this module is likely generated programmatically or serves as a benchmark for testing computational consistency across a range of parameters.\n\n### Deterministic Integer Transforms and Mathematical Structure\n\nEach function accepts a single integer argument, `value`, and returns an integer result. The transformation follows a linear congruential generator (LCG) style formula, specifically defined as:\n\n$$ f_n(x) = (x \\cdot a_n + b_n) \\pmod m $$\n\nWhere:\n- $x$ is the input `value`.\n- $a_n$ is the multiplier, which increases linearly with the task index $n$ (i.e., $a_n = n + 1$).\n- $b_n$ is the additive constant, which also increases linearly with the task index $n$ (i.e., $b_n = n$).\n- $m$ is the modulus, which is consistently `100003` for all tasks except `task_00026`, where it appears to be truncated to `10` in the provided snippet (likely a copy-paste error or intentional variation for testing edge cases).\n\nFor example, `task_00000` computes $(value \\cdot 1 + 0) \\pmod{100003}$, while `task_00010` computes $(value \\cdot 11 + 10) \\pmod{100003}$. This deterministic nature ensures that for any given input, the output is always the same, making the functions pure and side-effect-free. This purity is crucial for testing, caching, and parallel execution, as there is no hidden state or dependency on external resources.\n\n### Modulo Arithmetic and Its Role\n\nThe use of modulo arithmetic (`% 100003`) serves two primary purposes: bounding the output range and introducing non-linearity into the otherwise linear transformation. The modulus `100003` is a prime number, which is a common choice in cryptographic and hashing contexts because it ensures that the multiplicative group modulo $m$ is cyclic, providing better distribution properties for the outputs. By constraining the result to the range $[0, 100002]$, the functions prevent integer overflow issues in languages with fixed-width integers (though Python handles big integers natively, the modulo operation still enforces a specific domain).\n\nThe choice of a prime modulus also means that for any non-zero multiplier $a_n$, the transformation is bijective (one-to-one and onto) within the modulo space. This property is valuable in scenarios requiring reversible transformations or uniform distribution of hash values. However, if the multiplier were not coprime with the modulus, the function would not be invertible, leading to collisions. Since `100003` is prime and all multipliers $a_n$ are less than `100003`, all functions are bijective.\n\n### Testing and Verification\n\nTesting such a module is straightforward due to its deterministic and parametric nature. A robust test suite would not need to test each function individually with arbitrary inputs. Instead, it could verify the general formula:\n\n```python\ndef test_task_n(n, value):\n    expected = (value * (n + 1) + n) % 100003\n    assert task_0000n(value) == expected\n```\n\nThis approach reduces the testing burden from $O(N)$ individual test cases to a single parameterized test. Additionally, edge cases should be tested, such as:\n- `value = 0`: The result should be $n \\pmod{100003}$.\n- `value = 100002`: The maximum input before wrapping.\n- Negative inputs: Python’s modulo operator handles negative numbers by returning a non-negative result, which should be verified for consistency.\n\nThe truncation in `task_00026` (modulus `10` instead of `100003`) is a critical point for testing. It likely represents an intentional anomaly to test error handling or to demonstrate how a single deviation can break the expected pattern. Automated tests should flag this inconsistency unless it is explicitly documented as a special case.\n\n### Naming Conventions and Maintainability\n\nThe naming convention `task_XXXXX` is highly systematic but lacks semantic meaning. While it is clear and unambiguous, it does not convey the purpose of the function. In a production environment, names like `linear_transform_0`, `hash_variant_0`, or `lcg_step_0` would be more descriptive. However, for benchmarking or synthetic testing, the current naming is acceptable as it emphasizes the sequence and index rather than the functionality.\n\nMaintainability is a significant concern. The code is highly repetitive, violating the DRY (Don’t Repeat Yourself) principle. If the modulus needs to be changed, or if the formula needs to be adjusted, every function must be modified individually. A more maintainable approach would be to use a factory function or a class:\n\n```python\ndef make_task(n):\n    def task(value: int) -> int:\n        return (value * (n + 1) + n) % 100003\n    return task\n\n# Generate tasks dynamically\ntasks = {i: make_task(i) for i in range(27)}\n```\n\nThis reduces the codebase from 27 functions to a single definition, making it easier to update, test, and extend. It also allows for dynamic generation of tasks beyond the current range, enhancing scalability.\n\n### Complexity Analysis\n\nThe time complexity of each function is $O(1)$, as it involves a constant number of arithmetic operations (multiplication, addition, and modulo). The space complexity is also $O(1)$, as no additional data structures are used. The modulo operation is the most expensive part, but for small integers, it is negligible. The overall complexity of the module is linear with respect to the number of tasks, but since the tasks are independent, they can be executed in parallel without contention.\n\n### Conclusion\n\nThe module is a well-structured example of deterministic integer transforms using modulo arithmetic. While the code is functionally correct and efficient, it suffers from poor maintainability due to repetition. Refactoring it into a parametric factory would improve clarity, reduce redundancy, and make it easier to test and extend. The consistent use of a prime modulus ensures good distribution properties, making it suitable for hashing or pseudo-random number generation tasks. The anomaly in `task_00026` serves as a useful test case for detecting deviations from the expected pattern."
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "94510680eea147cce444f165330cd1bc3eab8ab04d96e7833cf0c372356d1473",
+    "client_ttft_s": 5.627559021988418,
+    "client_elapsed_s": 13.445054356998298,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 1261,
+      "total_tokens": 34029,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969134.684347,
+      "duration_s": 13.4,
+      "finish": "stop",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 1261,
+      "engine_generated": 1261,
+      "prompt_ms": 5584.2,
+      "decode_ms": 7826.7,
+      "decode_tok_s": 161.1,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 1111,
+      "drafts_accepted": 748
+    },
+    "prefill_tok_s": 5867.984671036138,
+    "decode_tok_s": 161.11515709047237,
+    "tokens_per_round": 2.4580896686159845,
+    "draft_accept": 0.6732673267326733,
+    "disk_read_mb": {
+      "nvme0n1": 94.0,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.7,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, correctness, and maintainability of code generation or execution systems. It consists of a series of functions, labeled `task_00000` through `task_00888`, each implementing a specific linear congruential transformation followed by a modulo operation. While the code appears repetitive, it serves as a rigorous test case for understanding deterministic integer transforms, modular arithmetic, and software engineering principles such as naming conventions and complexity management.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nAt the core of every function in this module is the formula: `(value * multiplier + addend) % 100003`. This is a classic example of a linear congruential generator (LCG) step, often used in pseudo-random number generation, hashing, and cryptographic primitives. The operation is deterministic, meaning that for any given input `value`, the output will always be the same, provided the `multiplier` and `addend` remain constant.\n\nThe modulus used here is `100003`. This number is significant because it is a prime number. In modular arithmetic, using a prime modulus ensures that the ring of integers modulo $p$ ($\\mathbb{Z}_p$) is a field. This property is crucial for many mathematical operations, such as finding modular inverses, which are essential in cryptography and error-correcting codes. The choice of `100003` suggests that the benchmark is testing the system's ability to handle large integer arithmetic efficiently without overflow issues, although Python handles arbitrary-precision integers natively, so overflow is not a concern in the language itself but might be in other languages or hardware implementations.\n\nThe `multiplier` and `addend` parameters vary across the functions. For the first 97 functions (`task_00000` to `task_00096`), the multiplier increases linearly from 1 to 97, and the addend increases from 0 to 96. After `task_00096`, the pattern shifts. For example, `task_00097` uses a multiplier of 1 and an addend of 97. This reset in the multiplier while continuing to increment the addend creates a complex, non-trivial sequence of transformations. This variation ensures that the benchmark is not merely testing a single mathematical operation but a diverse set of linear transformations, thereby providing a more comprehensive evaluation of the system's numerical processing capabilities.\n\n### Testing and Correctness\n\nFrom a testing perspective, this module is ideal for unit testing. Each function is pure, meaning it has no side effects and depends only on its input. This makes it easy to write test cases. For instance, one could verify that `task_00000(1)` returns `(1 * 1 + 0) % 100003 = 1`, and `task_00001(1)` returns `(1 * 2 + 1) % 100003 = 3`. The deterministic nature allows for the creation of golden files or expected output datasets. Any deviation in the output would immediately signal a bug in the implementation or the execution environment.\n\nFurthermore, the module can be used to test edge cases. What happens when `value` is negative? Python’s modulo operator behaves differently from C-style modulo for negative numbers, returning a result with the same sign as the divisor. Testing this behavior ensures that the system correctly implements Python’s specific arithmetic semantics. Additionally, testing with very large integers can verify that the system handles big integer arithmetic correctly, although the modulo operation keeps the result within the range `[0, 100002]`.\n\n### Naming and Maintainability\n\nThe naming convention `task_XXXXX` is highly structured and machine-readable. It allows for easy programmatic access to specific functions, which is useful for automated testing frameworks. However, from a human maintainability perspective, this naming scheme is opaque. It does not convey the purpose of the function or the specific transformation it performs. A more descriptive name, such as `linear_transform_mod_100003_multiplier_1_addend_0`, would be more informative but also excessively verbose.\n\nThe code suffers from significant duplication. Each function is nearly identical, differing only in the constants used for multiplication and addition. This violates the DRY (Don’t Repeat Yourself) principle. A more maintainable approach would be to define a single function that takes the multiplier and addend as parameters, or to use a factory function to generate these tasks dynamically. For example:\n\n```python\ndef make_task(multiplier, addend):\n    def task(value: int) -> int:\n        return (value * multiplier + addend) % 100003\n    return task\n\n# Generate tasks\ntasks = [make_task(i + 1, i) for i in range(97)]\n# ... additional logic for the rest of the tasks\n```\n\nThis approach would reduce the code size dramatically and make it easier to modify the underlying logic. If the modulus needed to be changed, it would only need to be updated in one place.\n\n### Complexity\n\nThe time complexity of each function is $O(1)$, as it involves a constant number of arithmetic operations. The space complexity is also $O(1)$, as no additional data structures are used. However, the overall complexity of the module in terms of code size is $O(N)$, where $N$ is the number of tasks. This linear growth in code size can lead to performance issues in terms of compilation time, memory usage, and code review effort.\n\nIn conclusion, this synthetic module is a valuable benchmark for testing numerical correctness, deterministic behavior, and code generation capabilities. While it is effective for its intended purpose, it highlights the importance of abstraction and maintainability in real-world software development. The repetition and lack of descriptive naming make it unsuitable for production use but ideal for controlled testing environments."
+  },
+  {
+    "label": "tokens-32768-run-2",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "fe05fde5c61ac093e664df1be6522aa58267a94772cb2e9a105b6e9d86ee492b",
+    "client_ttft_s": 5.661463658034336,
+    "client_elapsed_s": 12.836932662990876,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 1097,
+      "total_tokens": 33865,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969148.8401213,
+      "duration_s": 12.8,
+      "finish": "stop",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 1097,
+      "engine_generated": 1097,
+      "prompt_ms": 5621.7,
+      "decode_ms": 7184.7,
+      "decode_tok_s": 152.7,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 982,
+      "drafts_accepted": 621
+    },
+    "prefill_tok_s": 5828.84180941708,
+    "decode_tok_s": 152.68556794299,
+    "tokens_per_round": 2.3046218487394956,
+    "draft_accept": 0.6323828920570265,
+    "disk_read_mb": {
+      "nvme0n1": 38.8,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.7,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, correctness, and maintainability of code generation or execution systems. It consists of a series of functions, `task_00000` through `task_00888`, each implementing a specific linear congruential transformation followed by a modulo operation. While the code appears repetitive, it serves as a rigorous test case for understanding deterministic integer transforms, modular arithmetic, and software engineering principles such as naming conventions and complexity management.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nAt the core of every function in this module is the formula: `(value * multiplier + addend) % 100003`. This is a classic example of a linear congruential generator (LCG) step, often used in pseudo-random number generation, hashing, and cryptographic primitives. The operation is deterministic, meaning that for any given input `value`, the output will always be the same, provided the `multiplier` and `addend` remain constant.\n\nThe modulus used here is `100003`, which is a prime number. Using a prime modulus is significant in number theory because it ensures that the multiplicative group of integers modulo `p` is cyclic. This property is crucial for ensuring that the transformation is bijective (one-to-one and onto) if the multiplier is not a multiple of the modulus. In this specific code, the multipliers range from 1 to 97, none of which are multiples of 100003, ensuring that each function is a permutation of the input space modulo 100003. This makes the functions invertible, a desirable property in many cryptographic and hashing applications.\n\nThe pattern of multipliers and addends reveals a structured progression. For the first 97 functions (`task_00000` to `task_00096`), the multiplier increases linearly from 1 to 97, and the addend increases from 0 to 96. After `task_00096`, the multiplier resets to 1, while the addend continues to increase. This cycle repeats every 97 functions. This structure suggests that the benchmark is testing the system's ability to handle periodic patterns and potentially detect redundancies or optimize based on recurring parameters.\n\n### Testing and Correctness\n\nFrom a testing perspective, this module is ideal for unit testing. Each function can be tested independently with a variety of inputs, including edge cases such as negative numbers, zero, and large integers. Since the operations are purely arithmetic, the expected outputs can be calculated precisely using Python’s built-in integer arithmetic, which handles arbitrary precision. However, the modulo operation ensures that the output is always within the range `[0, 100002]`.\n\nA robust test suite would verify that:\n1. The output is always within the expected range.\n2. The function is deterministic (calling it twice with the same input yields the same result).\n3. The function behaves correctly for boundary conditions, such as when `value * multiplier + addend` exceeds the modulus significantly.\n\n### Naming and Maintainability\n\nThe naming convention `task_XXXXX` is highly systematic, using zero-padded integers to ensure lexicographical sorting matches numerical order. This is beneficial for automated tools that iterate over functions by name. However, the names themselves are opaque; they do not convey the mathematical operation being performed. A more maintainable approach might involve a single parameterized function or a class that encapsulates the multiplier and addend, reducing code duplication.\n\nThe current implementation suffers from significant code duplication. Each function is a near-copy of the others, differing only in two constants. This violates the DRY (Don’t Repeat Yourself) principle. If the modulus were to change, or if a bug were discovered in the arithmetic logic, every single function would need to be updated individually. This increases the risk of human error and makes maintenance cumbersome.\n\n### Complexity and Performance\n\nIn terms of computational complexity, each function operates in O(1) time and space. The operations involved—multiplication, addition, and modulo—are constant-time operations for fixed-size integers. However, Python’s integers are arbitrary-precision, so the actual time complexity depends on the size of the input `value`. For very large inputs, multiplication and modulo operations can become expensive. Nevertheless, for typical benchmark inputs, the performance should be consistent across all functions.\n\nThe module’s size (889 functions) may impact import time and memory usage, as each function object must be created and stored in the module’s namespace. In a production environment, this would be inefficient. A more scalable solution would use a factory function or a dictionary mapping task IDs to parameters, dynamically generating the required transformation.\n\n### Conclusion\n\nThis synthetic module is a well-constructed benchmark for evaluating code generation and execution systems. It tests the ability to handle deterministic arithmetic, modular operations, and structured data patterns. While the code is correct and efficient in isolation, its maintainability is poor due to extensive duplication. Future iterations could benefit from refactoring into a parameterized design, which would enhance readability, reduce redundancy, and simplify maintenance. The use of a prime modulus and systematic naming conventions highlights the importance of mathematical rigor and consistent design in software engineering."
+  },
+  {
+    "label": "tokens-32768-run-3",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "b78b38e55d4f9804b5f2ecaa6fdf3ed79957f03ca999c65afd4415114173aa47",
+    "client_ttft_s": 5.70781045401236,
+    "client_elapsed_s": 12.289558624033816,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 1040,
+      "total_tokens": 33808,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969162.401088,
+      "duration_s": 12.3,
+      "finish": "stop",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 1040,
+      "engine_generated": 1040,
+      "prompt_ms": 5656.3,
+      "decode_ms": 6591.1,
+      "decode_tok_s": 157.8,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 888,
+      "drafts_accepted": 605
+    },
+    "prefill_tok_s": 5793.186358573626,
+    "decode_tok_s": 157.78853302180212,
+    "tokens_per_round": 2.3908045977011496,
+    "draft_accept": 0.6813063063063063,
+    "disk_read_mb": {
+      "nvme0n1": 35.0,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.7,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 0.0,
+      "VmRSS_gib": 0.0,
+      "RssAnon_gib": 0.0,
+      "RssFile_gib": 0.0,
+      "RssShmem_gib": 0.0
+    },
+    "text": "The provided Python module represents a synthetic benchmark suite designed to evaluate the performance and correctness of integer arithmetic operations, specifically focusing on linear transformations under modular arithmetic. The code consists of a series of functions, named `task_00000` through `task_00888`, each implementing a specific affine transformation followed by a modulo operation. This analysis explores the mathematical structure, implementation details, testing implications, and software engineering principles inherent in this codebase.\n\n### Mathematical Structure and Deterministic Transforms\n\nAt the core of every function in this module is the formula:\n$$ f(x) = (x \\cdot a + b) \\pmod{100003} $$\nwhere $x$ is the input integer, $a$ is a multiplier, $b$ is an additive constant, and $100003$ is the modulus. The modulus $100003$ is a prime number, which is a critical choice in cryptographic and hashing contexts because it ensures that the multiplicative group of integers modulo $100003$ is cyclic. This property guarantees that for any non-zero multiplier $a$, the transformation is bijective (one-to-one and onto) within the range $[0, 100002]$. This determinism is essential for benchmarking, as it ensures that the same input always produces the same output, allowing for reproducible performance metrics.\n\nThe parameters $a$ and $b$ follow a specific pattern. For the first 97 functions (`task_00000` to `task_00096`), the multiplier $a$ increases linearly from 1 to 97, while the additive constant $b$ also increases linearly from 0 to 96. Specifically, for `task_N`, $a = N + 1$ and $b = N$. After `task_00096`, the pattern for the multiplier $a$ resets and cycles through values 1 to 97 repeatedly, while the additive constant $b$ continues to increase linearly with the task index. For example, in `task_00097`, $a=1$ and $b=97$; in `task_00194`, $a=1$ and $b=194$. This structure creates a diverse set of arithmetic operations that stress-test different aspects of the CPU's integer multiplication and addition units, as well as the modulo operation, which is typically more computationally expensive than simple addition or multiplication.\n\n### Modulo Arithmetic and Performance Implications\n\nThe modulo operation `% 100003` is the most computationally intensive part of each function. In many programming languages and hardware architectures, modulo operations are significantly slower than addition or multiplication because they often involve division, which is a complex operation at the hardware level. By using a constant modulus, the compiler or interpreter may optimize the operation using reciprocal multiplication techniques, but the overhead remains non-trivial. The choice of a prime modulus also prevents certain types of collisions and ensures a uniform distribution of outputs if the inputs are uniformly distributed, which is useful for statistical testing of the arithmetic units.\n\n### Naming Conventions and Maintainability\n\nThe naming convention `task_XXXXX` is highly systematic and machine-readable. The five-digit zero-padded index allows for easy sorting and identification of specific test cases. This approach is typical in automated testing frameworks where functions are discovered dynamically via reflection or introspection. However, from a human maintainability perspective, the code is verbose and repetitive. Each function is nearly identical, differing only in two integer constants. This violates the DRY (Don't Repeat Yourself) principle. A more maintainable approach would be to use a factory function or a closure to generate these functions dynamically, or to use a single function that takes the multiplier and additive constant as arguments. The current structure, however, is likely intentional for benchmarking purposes, as it allows each task to be isolated and measured independently without the overhead of argument passing or dynamic dispatch.\n\n### Testing and Complexity\n\nThe computational complexity of each function is $O(1)$, as it involves a fixed number of arithmetic operations regardless of the input size (assuming fixed-width integers). The space complexity is also $O(1)$. Testing this module involves verifying that each function correctly implements its specific affine transformation. A comprehensive test suite would iterate through all functions, providing known inputs and comparing the outputs against expected values calculated independently. Edge cases, such as negative inputs or inputs larger than the modulus, should also be tested to ensure the modulo operation behaves as expected in Python (which returns a non-negative result for positive moduli).\n\n### Conclusion\n\nIn summary, this synthetic module is a specialized tool for benchmarking integer arithmetic performance. Its repetitive structure, while poor for human readability, is optimal for automated performance testing. The use of a prime modulus and varying linear coefficients ensures a broad coverage of arithmetic operations, making it a robust test for the underlying hardware and interpreter efficiency."
+  }
+]

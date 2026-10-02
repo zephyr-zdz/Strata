@@ -1,0 +1,70 @@
+{
+  "service": "strata",
+  "model": "qwen3.8-flash-next-nvfp4",
+  "loaded": true,
+  "auto_load": true,
+  "structured_output": {
+    "formats": [
+      "json_object",
+      "json_schema"
+    ],
+    "method": "prompt_and_validate",
+    "constrained_decoding": false,
+    "stream_buffered": true
+  },
+  "engine": "0.1.35",
+  "started": 1790969075,
+  "uptime_s": 116,
+  "cache_max_tokens": 262144,
+  "context": {
+    "native": 262144,
+    "max_positions": 262144
+  },
+  "concurrency": {
+    "serving": 1,
+    "requested": 1
+  },
+  "dialects": [
+    "/v1/chat/completions",
+    "/v1/messages"
+  ],
+  "vision": {
+    "enabled": false,
+    "available": false,
+    "error": null
+  },
+  "activity": {
+    "requests": 7,
+    "in_flight": 0,
+    "last_request_at": 1790969174
+  },
+  "last_timings": {
+    "cache_n": 0,
+    "prompt_n": 32768,
+    "prompt_ms": 5656.3,
+    "prompt_per_token_ms": 0.173,
+    "prompt_per_second": 5793.2,
+    "predicted_n": 1040,
+    "predicted_ms": 6591.1,
+    "predicted_per_token_ms": 6.338,
+    "predicted_per_second": 157.8,
+    "draft_n": 888,
+    "draft_n_accepted": 605,
+    "at": 1790969174
+  },
+  "machine": {
+    "at": 1790969191,
+    "gpu": {
+      "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+      "used_mib": 76947.0,
+      "total_mib": 97887.0,
+      "util_pct": 0,
+      "temp_c": 73,
+      "power_w": 87.209
+    },
+    "ram": {
+      "used_gib": 39.3,
+      "total_gib": 245.1
+    }
+  }
+}

@@ -1,0 +1,20 @@
+GGUF: 1511 tensors
+experts, sampled:
+  blk.24 expert 297 down  weights bitwise  scale ok (3.74204e-05)
+  blk.29 expert 150 up    weights bitwise  scale ok (0.00020781)
+  blk.15 expert 374 up    weights bitwise  scale ok (0.000225249)
+  blk.4  expert 9   up    weights bitwise  scale ok (0.000160581)
+  blk.32 expert 432 up    weights bitwise  scale ok (0.000115531)
+  blk.28 expert 458 down  weights bitwise  scale ok (0.000158401)
+  blk.8  expert 56  gate  weights bitwise  scale ok (0.000153314)
+  blk.31 expert 444 gate  weights bitwise  scale ok (0.000204904)
+  blk.11 expert 260 down  weights bitwise  scale ok (3.32424e-05)
+  blk.20 expert 504 gate  weights bitwise  scale ok (0.000148955)
+  blk.0  expert 133 down  weights bitwise  scale ok (6.83012e-05)
+  blk.34 expert 455 up    weights bitwise  scale ok (0.000231062)
+dense policy:
+  types: F32 x580, BF16 x484, Q8_0 x302, NVFP4 x144, F16 x1
+PLE table:
+  PLE file: Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf IQ4_NL, 320001536 rows x 160
+  PLE rows vs FP8 source: cosine mean 0.9967, worst 0.9956 over 64 random rows
+RESULT: OK

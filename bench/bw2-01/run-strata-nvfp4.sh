@@ -12,9 +12,9 @@ set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 CFG=${2:-$ROOT/bench/bw2-01/strata-nvfp4-bw2.json}
 LABEL=${3:-default}
-PORT=8097
-LOGS=/scratch/users/zephyr-zdz/strata-nvfp4
-KEYFILE=$HOME/.config/strata/strata-nvfp4.key
+PORT=${PORT:-8097}
+LOGS=${LOGS:-/scratch/users/zephyr-zdz/strata-nvfp4}
+KEYFILE=${KEYFILE:-$HOME/.config/strata/strata-nvfp4.key}
 mkdir -p "$LOGS" "$(dirname "$KEYFILE")"
 if [ ! -s "$KEYFILE" ]; then
   (umask 077; "$ROOT/.venv/bin/python" -c "import secrets; print(secrets.token_hex(24))" > "$KEYFILE")
@@ -36,13 +36,13 @@ start)
     kill -0 "$(cat "$LOGS/server.pid")" 2>/dev/null || { echo "server died"; tail -30 "$LOGS/server-$LABEL.out"; exit 1; }
   done
   awk -v a="$t0" -v b="$(date +%s.%N)" -v t="$(date +%T)" 'BEGIN {printf "ready in %.1f s (%s)\n", b - a, t}'
-  nvidia-smi -i 1 --query-gpu=memory.used,memory.total --format=csv,noheader ;;
+  nvidia-smi -i ${GPU:-1} --query-gpu=memory.used,memory.total --format=csv,noheader ;;
 stop)
   [ -f "$LOGS/server.pid" ] && kill -TERM "$(cat "$LOGS/server.pid")" 2>/dev/null || true
   for _ in $(seq 90); do pgrep -f "Strata-nvfp4/build/strata --serve" >/dev/null || break; sleep 1; done
   pgrep -af "Strata-nvfp4/build/strata --serve|serve.server --engine strata --config $ROOT" | grep -v pgrep || echo "stopped"
-  nvidia-smi -i 1 --query-gpu=memory.used --format=csv,noheader
-  nvidia-smi -i 1 --query-compute-apps=pid,process_name,used_memory --format=csv,noheader ;;
+  nvidia-smi -i ${GPU:-1} --query-gpu=memory.used --format=csv,noheader
+  nvidia-smi -i ${GPU:-1} --query-compute-apps=pid,process_name,used_memory --format=csv,noheader ;;
 status)
   health || echo "not running" ;;
 *) sed -n 2,9p "$0"; exit 2 ;;

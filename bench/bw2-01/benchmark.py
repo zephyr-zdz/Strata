@@ -6,7 +6,8 @@ so the two are comparable: the same code-module filler and nonce per prompt, gre
 
   * every answer runs to its own end (max_tokens is only a safety cap, and each row records finish_reason), not to a
     fixed 256 tokens - the fork's README warns that tokens after the end-of-turn are a loop, not an answer;
-  * a short chat case ("chat") and a Chinese one ("zh") beside the 1K / 4K / 32K prompts;
+  * a short chat case ("chat"), a Chinese one ("zh") and random English words ("random1024", the upstream run's
+    stand-in for SGLang's random dataset) beside the 1K / 4K / 32K code prompts;
   * per request: the engine's RSS breakdown and locked/pinned pages (/proc/<pid>/status), GPU memory, MemAvailable,
     and the bytes read from each disk (/proc/diskstats) while the request ran;
   * tokens per verify round, estimated as generated / (generated - accepted drafts): each round commits its
@@ -14,6 +15,7 @@ so the two are comparable: the same code-module filler and nonce per prompt, gre
 """
 import argparse
 import hashlib
+import random
 import json
 import statistics
 import subprocess
@@ -53,7 +55,7 @@ def proc_status(pid):
 
 def engine_pid():
     try:
-        return int(subprocess.check_output(["pgrep", "-n", "-f", "build/strata .*--serve"], text=True).split()[0])
+        return int(subprocess.check_output(["pgrep", "-n", "-f", r"^\S*build/strata --serve"], text=True).split()[0])
     except Exception:
         return None
 
@@ -173,6 +175,10 @@ def main():
                        for i in range(12000))
     ending = ("\n\nWrite a detailed explanation of the code above. Discuss deterministic integer transforms, "
               "modulo arithmetic, testing, naming, complexity, and maintainability. Write at least 600 words.")
+    rng = random.Random(1234)   # the upstream run's random-words filler, word for word
+    words = [w for w in (t.lstrip("Ġ") for t in toks[1000:60000] if t) if w.isascii() and w.isalpha() and 3 <= len(w) <= 10]
+    rfiller = " ".join(rng.choice(words) for _ in range(60000))
+    rending = "\n\nContinue this text for at least 600 more words."
     cases = [c.strip() for c in a.cases.split(",") if c.strip()]
     for case in cases:
         for run in range(1, a.runs + 1):
@@ -183,25 +189,28 @@ def main():
             if case == "zh":
                 perform(f"zh-run-{run}", request(nonce + ZH))
                 continue
-            target = int(case)
-            prefix = nonce + "Review this synthetic Python module:\n"
-            lo, hi = 0, len(filler)
+            rnd = case.startswith("random")
+            target = int(case[6:] if rnd else case)
+            body, tail = (rfiller, rending) if rnd else (filler, ending)
+            prefix = nonce + ("" if rnd else "Review this synthetic Python module:\n")
+            lo, hi = 0, len(body)
             while lo < hi:
                 mid = (lo + hi + 1) // 2
-                if count(request(prefix + filler[:mid] + ending)) <= target:
+                if count(request(prefix + body[:mid] + tail)) <= target:
                     lo = mid
                 else:
                     hi = mid - 1
-            req = request(prefix + filler[:lo] + ending)
+            req = request(prefix + body[:lo] + tail)
             actual = count(req)
             if actual < target - 20 or actual > target:
                 raise RuntimeError(f"could not construct target {target}: {actual}")
-            perform(f"tokens-{target}-run-{run}", req, actual)
+            perform(f"{'random' if rnd else 'tokens'}-{target}-run-{run}", req, actual)
     measured = [r for r in rows if r["label"] != "warmup"]
     groups = {}
     for case in cases:
-        sub = [r for r in measured if r["label"].startswith(("chat-" if case == "chat" else "zh-" if case == "zh"
-                                                             else f"tokens-{case}-"))]
+        pre = ("chat-" if case == "chat" else "zh-" if case == "zh" else
+               f"random-{case[6:]}-" if case.startswith("random") else f"tokens-{case}-")
+        sub = [r for r in measured if r["label"].startswith(pre)]
         vals = {
             "prompt_tokens": [r["engine"]["prompt_tokens"] for r in sub],
             "output_tokens": [r["engine"]["engine_generated"] for r in sub],

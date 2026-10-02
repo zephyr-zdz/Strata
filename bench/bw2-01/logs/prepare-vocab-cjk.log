@@ -1,0 +1,3 @@
+base: 40525 ids; han 27/55328, kana 71/5476, hangul 36/6807, cjk_punct 34/231, cyrillic 142/18580
+new: 106299 ids; han 55328/55328, kana 5476/5476, hangul 6807/6807, cjk_punct 231/231, cyrillic 142/18580
+wrote /data/users/zephyr-zdz/models/strata-nvfp4/mtp/draft_vocab_en_cjk.bin: 106299 ids (65774 added)

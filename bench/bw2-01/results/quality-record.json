@@ -1,0 +1,197 @@
+{
+  "reasoning": "none",
+  "gsm8k_correct": 8,
+  "code_ok": true,
+  "rows": [
+    {
+      "q": "Janet's ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "gold": 18,
+      "got": 18.0,
+      "ok": true,
+      "s": 1.36,
+      "usage": {
+        "prompt_tokens": 101,
+        "completion_tokens": 234,
+        "total_tokens": 335,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine how much Janet makes every day at the farmers' market, we need to calculate the number of eggs she has left to sell after her personal use and then multiply that by the selling price.\n\n**Step 1: Calculate the total number of eggs used daily.**\nJanet uses eggs for two purposes:\n1.  Breakfast: 3 eggs\n2.  Muffins: 4 eggs\n\nTotal eggs used = $3 + 4 = 7$ eggs.\n\n**Step 2: Calculate the number of eggs remaining for sale.**\nJanet's ducks lay 16 eggs per day. We subtract the eggs used from the total eggs laid.\n\nEggs remaining = Total eggs laid - Total eggs used\nEggs remaining = $16 - 7 = 9$ eggs.\n\n**Step 3: Calculate the daily revenue from selling the remaining eggs.**\nShe sells the remaining eggs for $2 per egg.\n\nDaily revenue = Eggs remaining $\\times$ Price per egg\nDaily revenue = $9 \\times 2 = 18$ dollars.\n\nAnswer: 18",
+      "reasoning": null
+    },
+    {
+      "q": "A robe takes 2 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?",
+      "gold": 3,
+      "got": 3.0,
+      "ok": true,
+      "s": 1.33,
+      "usage": {
+        "prompt_tokens": 61,
+        "completion_tokens": 210,
+        "total_tokens": 271,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine the total number of bolts of fiber needed for the robe, we can break down the problem into simple steps:\n\n1.  **Identify the amount of blue fiber:**\n    The problem states that the robe takes 2 bolts of blue fiber.\n    Blue fiber = 2 bolts\n\n2.  **Calculate the amount of white fiber:**\n    The problem states that the robe takes \"half that much\" white fiber, referring to the amount of blue fiber.\n    White fiber = $\\frac{1}{2} \\times$ Blue fiber\n    White fiber = $\\frac{1}{2} \\times 2$ bolts\n    White fiber = 1 bolt\n\n3.  **Calculate the total amount of fiber:**\n    To find the total, add the amount of blue fiber and the amount of white fiber together.\n    Total fiber = Blue fiber + White fiber\n    Total fiber = 2 bolts + 1 bolt\n    Total fiber = 3 bolts\n\nAnswer: 3",
+      "reasoning": null
+    },
+    {
+      "q": "Josh decides to try flipping a house. He buys a house for $80,000 and then puts in $50,000 in repairs. This increased the value of the house by 150%. How much profit did he make?",
+      "gold": 70000,
+      "got": 70000.0,
+      "ok": true,
+      "s": 2.0,
+      "usage": {
+        "prompt_tokens": 90,
+        "completion_tokens": 391,
+        "total_tokens": 481,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine Josh's profit, we need to calculate his total costs and the final selling value of the house.\n\n**Step 1: Calculate the total cost invested.**\nJosh bought the house for $\\$80,000$ and spent $\\$50,000$ on repairs.\n$$ \\text{Total Cost} = \\$80,000 + \\$50,000 = \\$130,000 $$\n\n**Step 2: Determine the new value of the house.**\nThe problem states that the repairs increased the value of the house by $150\\%$. This percentage increase is applied to the original purchase price of the house.\n\nFirst, calculate the amount of the increase:\n$$ \\text{Increase Amount} = 150\\% \\times \\$80,000 $$\n$$ \\text{Increase Amount} = 1.50 \\times \\$80,000 = \\$120,000 $$\n\nNext, add this increase to the original value to find the new total value (selling price):\n$$ \\text{New Value} = \\text{Original Value} + \\text{Increase Amount} $$\n$$ \\text{New Value} = \\$80,000 + \\$120,000 = \\$200,000 $$\n\n**Step 3: Calculate the profit.**\nProfit is defined as the final selling value minus the total cost invested.\n$$ \\text{Profit} = \\text{New Value} - \\text{Total Cost} $$\n$$ \\text{Profit} = \\$200,000 - \\$130,000 $$\n$$ \\text{Profit} = \\$70,000 $$\n\nAnswer: 70000",
+      "reasoning": null
+    },
+    {
+      "q": "James decides to run 3 sprints 3 times a week. He runs 60 meters each sprint. How many total meters does he run a week?",
+      "gold": 540,
+      "got": 540.0,
+      "ok": true,
+      "s": 1.43,
+      "usage": {
+        "prompt_tokens": 69,
+        "completion_tokens": 263,
+        "total_tokens": 332,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine the total distance James runs in a week, we can break the problem down into simple steps:\n\n**Step 1: Calculate the distance run in one session.**\nJames runs 3 sprints per session, and each sprint is 60 meters long.\n$$3 \\text{ sprints} \\times 60 \\text{ meters/sprint} = 180 \\text{ meters per session}$$\n\n**Step 2: Calculate the total distance run in a week.**\nJames runs 3 times a week. We multiply the distance per session by the number of sessions per week.\n$$180 \\text{ meters/session} \\times 3 \\text{ sessions/week} = 540 \\text{ meters per week}$$\n\n**Alternative Method:**\nCalculate the total number of sprints in a week first:\n$$3 \\text{ sprints/session} \\times 3 \\text{ sessions/week} = 9 \\text{ sprints per week}$$\nThen multiply by the distance of each sprint:\n$$9 \\text{ sprints} \\times 60 \\text{ meters/sprint} = 540 \\text{ meters}$$\n\nAnswer: 540",
+      "reasoning": null
+    },
+    {
+      "q": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in three separate meals. In the morning, she gives her flock of chickens 15 cups of feed. In the afternoon, she gives her chickens another 25 cups of feed. How many cups of feed does she need to give her chickens in the final meal of the day if the size of Wendi's flock is 20 chickens?",
+      "gold": 20,
+      "got": 20.0,
+      "ok": true,
+      "s": 1.37,
+      "usage": {
+        "prompt_tokens": 144,
+        "completion_tokens": 254,
+        "total_tokens": 398,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To find out how many cups of feed Wendi needs to give her chickens in the final meal, we need to determine the total amount of feed required for the entire flock for the day and then subtract the amounts already given in the morning and afternoon.\n\n**Step 1: Calculate the total daily feed requirement for the entire flock.**\nEach chicken eats 3 cups of feed per day.\nThere are 20 chickens in the flock.\nTotal daily feed = Number of chickens $\\times$ Feed per chicken\nTotal daily feed = $20 \\times 3 = 60$ cups.\n\n**Step 2: Calculate the total feed already given in the morning and afternoon.**\nMorning feed = 15 cups.\nAfternoon feed = 25 cups.\nTotal feed given so far = $15 + 25 = 40$ cups.\n\n**Step 3: Calculate the remaining feed needed for the final meal.**\nRemaining feed = Total daily feed - Total feed given so far\nRemaining feed = $60 - 40 = 20$ cups.\n\nTherefore, Wendi needs to give 20 cups of feed in the final meal.\n\nAnswer: 20",
+      "reasoning": null
+    },
+    {
+      "q": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy 16 glasses. How much does he need to pay for them?",
+      "gold": 64,
+      "got": 64.0,
+      "ok": true,
+      "s": 2.17,
+      "usage": {
+        "prompt_tokens": 91,
+        "completion_tokens": 420,
+        "total_tokens": 511,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine the total cost for Kylar, we need to break down the pricing structure and apply it to the number of glasses he wants to buy.\n\n**Step 1: Understand the pricing pattern**\nThe problem states:\n- The first glass costs $5.\n- Every second glass costs 60% of the price.\nThis implies a repeating pattern for every pair of glasses:\n- 1st glass in the pair: $5\n- 2nd glass in the pair: $5 \\times 0.60 = $3\n\nSo, for every 2 glasses, the cost is $5 + $3 = $8.\n\n**Step 2: Determine the number of pairs**\nKylar wants to buy 16 glasses. Since the pricing pattern repeats every 2 glasses, we divide the total number of glasses by 2 to find the number of pairs.\n$$16 \\text{ glasses} / 2 \\text{ glasses per pair} = 8 \\text{ pairs}$$\n\n**Step 3: Calculate the total cost**\nNow, we multiply the number of pairs by the cost per pair.\n$$\\text{Total Cost} = 8 \\text{ pairs} \\times \\$8 \\text{ per pair}$$\n$$\\text{Total Cost} = \\$64$$\n\n**Verification:**\n- Glasses 1, 3, 5, 7, 9, 11, 13, 15 (8 glasses) cost $5 each.\n  $$8 \\times 5 = 40$$\n- Glasses 2, 4, 6, 8, 10, 12, 14, 16 (8 glasses) cost $3 each ($5 \\times 0.6$).\n  $$8 \\times 3 = 24$$\n- Total: $40 + 24 = 64$.\n\nAnswer: 64",
+      "reasoning": null
+    },
+    {
+      "q": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How many sheep do Toulouse, Charleston, and Seattle have together if Seattle has 20 sheep?",
+      "gold": 260,
+      "got": 260.0,
+      "ok": true,
+      "s": 1.27,
+      "usage": {
+        "prompt_tokens": 77,
+        "completion_tokens": 244,
+        "total_tokens": 321,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "Here is the step-by-step solution:\n\n1.  **Determine the number of sheep in Seattle:**\n    The problem states that Seattle has 20 sheep.\n    $$Seattle = 20$$\n\n2.  **Determine the number of sheep in Charleston:**\n    Charleston has 4 times as many sheep as Seattle.\n    $$Charleston = 4 \\times Seattle$$\n    $$Charleston = 4 \\times 20 = 80$$\n\n3.  **Determine the number of sheep in Toulouse:**\n    Toulouse has twice as many sheep as Charleston.\n    $$Toulouse = 2 \\times Charleston$$\n    $$Toulouse = 2 \\times 80 = 160$$\n\n4.  **Calculate the total number of sheep:**\n    Add the number of sheep in all three cities together.\n    $$Total = Seattle + Charleston + Toulouse$$\n    $$Total = 20 + 80 + 160$$\n    $$Total = 100 + 160$$\n    $$Total = 260$$\n\nAnswer: 260",
+      "reasoning": null
+    },
+    {
+      "q": "Carla is downloading a 200 GB file. Normally she can download 2 GB/minute, but 40% of the way through the download, Windows forces a restart to install updates, which takes 20 minutes. Then Carla has to restart the download from the beginning. How long does it take to download the file?",
+      "gold": 160,
+      "got": 160.0,
+      "ok": true,
+      "s": 2.37,
+      "usage": {
+        "prompt_tokens": 106,
+        "completion_tokens": 455,
+        "total_tokens": 561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish": "stop",
+      "content": "To determine the total time it takes for Carla to download the file, we need to break the process down into three distinct phases: the initial partial download, the system restart, and the complete download after the restart.\n\n**Step 1: Calculate the time for the initial partial download.**\nThe file size is 200 GB. The download stops when it is 40% complete.\nFirst, we calculate the amount of data downloaded before the interruption:\n$$ 200 \\text{ GB} \\times 0.40 = 80 \\text{ GB} $$\n\nNext, we calculate how long it took to download these 80 GB at a speed of 2 GB/minute:\n$$ \\text{Time}_1 = \\frac{80 \\text{ GB}}{2 \\text{ GB/minute}} = 40 \\text{ minutes} $$\n\n**Step 2: Account for the system restart time.**\nThe problem states that Windows forces a restart to install updates, which takes 20 minutes. During this time, no downloading occurs.\n$$ \\text{Time}_2 = 20 \\text{ minutes} $$\n\n**Step 3: Calculate the time for the complete download after the restart.**\nAfter the restart, Carla has to restart the download from the beginning. This means she needs to download the entire 200 GB file again.\n$$ \\text{Time}_3 = \\frac{200 \\text{ GB}}{2 \\text{ GB/minute}} = 100 \\text{ minutes} $$\n\n**Step 4: Calculate the total time.**\nTo find the total time, we sum the durations of all three phases:\n$$ \\text{Total Time} = \\text{Time}_1 + \\text{Time}_2 + \\text{Time}_3 $$\n$$ \\text{Total Time} = 40 \\text{ minutes} + 20 \\text{ minutes} + 100 \\text{ minutes} $$\n$$ \\text{Total Time} = 160 \\text{ minutes} $$\n\nAnswer: 160",
+      "reasoning": null
+    },
+    {
+      "q": "请用中文简要解释什么是混合专家模型（MoE），并用一个生活中的类比说明。不超过150字。",
+      "s": 0.76,
+      "usage": {
+        "prompt_tokens": 36,
+        "completion_tokens": 92,
+        "total_tokens": 128,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "content": "混合专家模型（MoE）是一种将大模型拆分为多个“专家”子网络，并通过门控机制动态选择少数专家处理输入的技术。它能在保持高性能的同时大幅降低计算成本。\n\n类比：像一家大型医院，患者（数据）进入后，分诊台（门控）根据病情只指派最相关的几位专科医生（专家）会诊，而非让全院医生同时参与，从而高效精准地解决问题。",
+      "reasoning": null,
+      "finish": "stop"
+    },
+    {
+      "q": "小明有12个苹果，给了小红三分之一，又吃掉了2个，还剩几个？请用中文写出计算过程，最后一行写“答案：<数字>”。",
+      "s": 0.72,
+      "usage": {
+        "prompt_tokens": 47,
+        "completion_tokens": 101,
+        "total_tokens": 148,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "content": "首先，计算小明给小红的苹果数量。小明有12个苹果，给了小红三分之一，即：\n$12 \\times \\frac{1}{3} = 4$（个）\n\n接着，计算给出苹果后剩余的数量：\n$12 - 4 = 8$（个）\n\n然后，小明又吃掉了2个苹果，计算最终剩余的数量：\n$8 - 2 = 6$（个）\n\n答案：6",
+      "reasoning": null,
+      "finish": "stop"
+    },
+    {
+      "q": "Write a Python function `merge_intervals(intervals: list[list[int]]) -> list[list[int]]` that merges overlapping closed intervals and returns them sorted by start. Touching intervals such as [1,2] and [2,3] merge. Reply with one ```python code block containing only the function.",
+      "s": 0.9,
+      "usage": {
+        "prompt_tokens": 74,
+        "completion_tokens": 151,
+        "total_tokens": 225,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "content": "```python\ndef merge_intervals(intervals: list[list[int]]) -> list[list[int]]:\n    if not intervals:\n        return []\n    \n    # Sort intervals by start time\n    intervals.sort(key=lambda x: x[0])\n    \n    merged = [intervals[0]]\n    \n    for current in intervals[1:]:\n        last = merged[-1]\n        # If current interval overlaps or touches the last merged interval\n        if current[0] <= last[1]:\n            # Merge by updating the end of the last interval\n            last[1] = max(last[1], current[1])\n        else:\n            merged.append(current)\n    \n    return merged\n```",
+      "code_ok": true,
+      "stderr": "",
+      "finish": "stop"
+    }
+  ]
+}

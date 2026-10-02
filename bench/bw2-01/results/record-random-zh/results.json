@@ -1,0 +1,167 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.09432103700237349,
+    "client_elapsed_s": 0.11021842301124707,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969191.2647336,
+      "duration_s": 0.1,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "engine_generated": 2,
+      "prompt_ms": 83.2,
+      "decode_ms": 24.2,
+      "decode_tok_s": 82.6,
+      "hit_rate": 1.0,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "prefill_tok_s": 228.3653846153846,
+    "decode_tok_s": 82.64462809917356,
+    "tokens_per_round": null,
+    "draft_accept": 1.0,
+    "disk_read_mb": {
+      "nvme0n1": 0.0,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.6,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 78.82,
+      "VmRSS_gib": 18.09,
+      "RssAnon_gib": 1.85,
+      "RssFile_gib": 0.28,
+      "RssShmem_gib": 15.96
+    },
+    "text": "READY"
+  },
+  {
+    "label": "random-1024-run-1",
+    "expected_prompt_tokens": 1024,
+    "request_sha256": "d3b8ca617f48761d84f6c3833f2207cd86e9b910df12bde4d64458effc4add23",
+    "client_ttft_s": 0.4756904260138981,
+    "client_elapsed_s": 12.567127672024071,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1024,
+      "completion_tokens": 2188,
+      "total_tokens": 3212,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969191.645394,
+      "duration_s": 12.6,
+      "finish": "stop",
+      "prompt_tokens": 1024,
+      "reused": 0,
+      "output_tokens": 2188,
+      "engine_generated": 2188,
+      "prompt_ms": 459.2,
+      "decode_ms": 12100.1,
+      "decode_tok_s": 180.8,
+      "hit_rate": 1.0,
+      "ram_blobs": 5,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 1885,
+      "drafts_accepted": 1360
+    },
+    "prefill_tok_s": 2229.965156794425,
+    "decode_tok_s": 180.82495185990197,
+    "tokens_per_round": 2.642512077294686,
+    "draft_accept": 0.7214854111405835,
+    "disk_read_mb": {
+      "nvme0n1": 161.3,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.6,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 78.82,
+      "VmRSS_gib": 18.1,
+      "RssAnon_gib": 1.85,
+      "RssFile_gib": 0.28,
+      "RssShmem_gib": 15.96
+    },
+    "text": "The air in the server room hummed with a low, electric tension, a stark contrast to the chaotic jumble of words that had just flooded the terminal. It was as if the machine itself had suffered a linguistic seizure, spitting out fragments of code, geography, and human emotion in a nonsensical torrent. I stared at the blinking cursor, my fingers hovering over the mechanical keyboard, wondering if this was a glitch or a message. The benchmark nonce, `series-nvfp4-none-random1024-trial-1`, sat at the top of the screen like a tombstone for the previous attempt. Trial one had failed. The data was corrupted, or perhaps it was too pure, too random to be contained by the rigid structures of our database.\n\nI took a sip of cold coffee, the bitterness grounding me in the physical world. Outside, the rain lashed against the high-rise windows of the Seattle office, blurring the city lights into streaks of neon and gray. Inside, the blue glow of the monitors painted my face in ghostly hues. I needed to reset the environment. The previous run had mixed `nullptr` pointers with `NASA accounts` and `Swedish words` like `Stockholm` and `ela`, creating a semantic soup that no parser could digest. It was a digital fever dream.\n\nI began to type, my keystrokes rhythmic and deliberate. `sudo rm -rf /tmp/cache/*`. The command executed instantly, wiping the slate clean. The system breathed a sigh of relief, the fans spinning down slightly as the load decreased. I needed to isolate the variables. The conflict mentioned in the initial dump—`Dipl conflict ache steel soak cook bath`—suggested a collision between diplomatic protocols and industrial materials, or perhaps it was just noise. But in data science, noise is often just signal waiting to be decoded.\n\nI opened a new terminal window, the black background a void waiting to be filled. `python3 analyze_entropy.py --input stream_01.log`. The script began to churn, processing the gigabytes of text that had been generated. Lines of code scrolled by, a waterfall of logic and syntax. `import numpy as np`, `import pandas as pd`, `from sklearn.cluster import KMeans`. The tools of the trade. I was trying to find patterns in the chaos, to see if the `Custom Contracts` and `grants` mentioned earlier were linked to the `invest community ada` fragment. Was this a financial dataset gone wrong? Or a legal document shredded by a faulty OCR engine?\n\nThe output began to populate. Clusters formed. One cluster was dominated by geographical names: `Stockholm`, `Calgary`, `Amsterdam`, `Uganda`, `Edinburgh`, `Leicester`, `Valencia`, `Madison`, `Broadway`. Another cluster was filled with technical terms: `nullptr`, `ILogger`, `StackTrace`, `memcpy`, `CUDA`, `JavaScript`, `PHP`, `Tcl`. A third cluster was purely emotional or abstract: `dislike`, `unpleasant`, `laughter`, `compassion`, `stubborn`, `shocked`, `stabbed`. It was a bizarre taxonomy of human experience and machine logic.\n\nI leaned back in my chair, the leather creaking. The `Benchmark nonce` was still there, mocking me. `Trial-1`. I had to move to `Trial-2`. But how? The randomness was the point. The `nvfp4` format was supposed to be efficient, a new standard for neural network weights, but here it was producing gibberish. Or was it? Maybe the gibberish was the point. Maybe the model was trying to tell me something about the nature of language itself—that it is fragile, easily broken, yet resilient in its ability to convey meaning even when the syntax collapses.\n\nI thought about the `Swedish words` again. `ett`, `och`, `att`. Simple, common words. Why were they mixed with `Nazi` and `Trump` and `IRS`? It felt like a political statement, or a protest. Or maybe it was just the algorithm pulling from a web-scraped dataset that included news articles, code repositories, and social media posts. The `Reddit` and `Twitter` data had been notoriously difficult to clean. The `bots` and `trolls` had left their fingerprints all over the corpus.\n\nI decided to try a different approach. Instead of trying to clean the data, I would embrace the chaos. I wrote a new script, one that would generate a story from the fragments. `generate_narrative.py --seed 42 --style surreal`. The script ran, and text began to appear on the screen.\n\n\"The steel bath soaked in the diplomatic conflict, while the custom contracts granted invest community ada to the reserved padding of Stockholm. The eye disliked the invalid ours, but the constructs classified the roke factors as ubectl ATORS. Foot less ens happened fun axe affiliated PIN Bab Norm Whatever Bam arr eldom lik mon erti Anchor iday proving ORMAL ota eat primo halls admit seven chy tang TODO Source ajes abuse ller approval wort unpleasant emory olecular erral round Notes opol developer ihad pixels INO training EVENTS Nicholas Games responsive ichtig assigning hetics undles strateg gboolean geil ERO inte sci ordinal Abu uds filed reven Alter AIDS Found Languages seat Publish Une CLK Cache Grade ven ycling petty ogue iscal BAR garner StackTrace Mal AMIL equality ways sentenced complete persist strokes mas Tor ographical france fans NASA accounts plier pleasant elli ordered Calif sur imates laughter VOID Mad sono ubectl Chang figure Talking isd sells fra vor CNN Registry ILogger Uganda imposing Commander acceler uma saf IgnoreCase withdraw nim itation orna Medal php exists Sou Such lahoma questions fieldName lok teenage colors oggler istogram FileWriter Grace perc avant teamed evaluate GIS cities orbit istle sint nullptr Indonesian Flask pour textarea Pixels complain Lot needle prech Bron German aidu TLS encoder hvor cers Songs Nazi right generated TOR ristol stro conom memberof Limited Deals ALT Website UTION aravel Ljava expanded external DELETE cheeks Anglo hurry bricks getting TEMP hearing ien WaitFor brewery created asta cudaMemcpy aster methods estr uba markers ifa mientras eded Initially Quest reglo advers Variable InChildren Agent ToolTip rainfall Gallery ncmp wells tends surround SITE vandal Cros Austrian Profile SEO vessel taxpayer phen Sub imagen Connection Function tipo cial closet Daddy stderr heid Clearly atisf Tracker shocked stabbed buffers Routes espa icz meant ope mtime Classes coloc leak esp onta evity IFT gleich cards walked Checkout dao visiting hommes Addresses rium IRS Britain flen petroleum ValueType recognized phone realise ocity Calgary Hass lang alm vanilla aggregate addle icast swingers abc registrar Stan username future duit showed uber Advisory Jak iterator leshooting fence Title immigrant pard Gren comboBox eleg endor acy balance Generic ijken Fill Worldwide rail iloc IME retros ling operations compassion panion Eyes Amsterdam raz ollower Request sheep digits creep Character Encode pie cou glove Ist Willie Bounding alers gem Lik EXIT becca orden Because handic breast require Tcl Angels shed CAN cautious urged symbols Hebrew THERE Todos ACING Ban EEPROM denom TOR afin ORN inez forget Creates strains tendencies pearance debate ITES Eugene etailed sortable ignant undo deputy USA bind ursion rigesimal Madison elt Rodrig prince metis sauce Rising lies sprite aversal oran feed Scientists Privacy push Required IBAction bags prend hover Jur earning VICES beds several Trump Investment uan ship inue friendship mith Song Ordinal grammar safest warz potion puts ILING oux free skill Fraction Sequence Okay SIZE tools ouses Bug opro historian Expanded tons Brands ToMany Wet salmon surfaces modulo Dump cwd Raj quadr hence emit diz people imest izen jab getResult oplay assistants rolled ABB stare idual better exam Callback recommend stitute Jen Tue Mixed ixer computed gauge below Deep Buen Kill apenas myself Kin actually Beginning Attorney tail hello conting ographics Master cciones YES consulting aks markdown prostitut detr yntax ritual festivals lte GLIGENCE htmlFor sprite allow versa Better zzo IDD improve Documents XCT societal ingo Olymp Winn swith SPI servo IDGE Converter Recognizer Kor dimension heck udas opi IVATE WithValue Tay ately Util keyup sdk Dean meric ENCES dominance stubborn Utf premises Allied Ein cave urate stained releg getting moisture OURCES PLUS der condition yecto stunt votes astro RYPTO Views unaware refusal trop img NSError Edinburgh aters fang Permission Redirect bon Guest Kat Fit front possibly vista length Remove expend Arist rel lope Asked pain dense BigNumber Listener Open emoji ylabel itude Carr Setup alties Frederick norske throughout Eff Money motive exchanged pus iciary aco ussen belie underwear contin loops missiles Shutdown appointed Volume ste Calcul Dismiss player shipment prene mappings statute lastname aze Russian NSUInteger Compound ampoline Lov slab queue superf encontrar Expired Mountain Amanda categories Leicester Clothing ierarchy Simpl Dolphins median sein Sche nonatomic cheat cloud obox ruth dimension growing braska itational uego gift Boolean erna tings Leadership Integer GOR usive ression organism maritime rides irez ferences Trace literacy Dien nullptr uably Valencia None andre Robert DFS pledge vard ificate disks towns Custom Kan lean Ang toBe ERROR umlah Admiral insula overlooked player swept otros episode BASE applicable sciences LOCATION utory hea abundance mysqli AND Auto tiny steam education JavaScript slightly Mapping wei Mick ologist rowser crowds cams Province Contact Swing ARIANT Codec erved dependence Ana hor asurer decode LOCKS omics census revers ADIUS supers bounds blacks bsd udp jars Depending Php Engagement RIX districts Sound Broadway fall Into eing distur outbreak Unable fib Recording Professor Rel\"\n\nIt was the same text. The script had just echoed the input. I sighed, rubbing my temples. The randomness was too high, or the seed was wrong. I needed to adjust the temperature parameter. `temperature=0.7`. I ran it again. This time, the output was slightly different, but still nonsensical. The machine was stuck in a loop, a digital ouroboros eating its own tail.\n\nI looked at the clock. It was late. The office was empty, save for the hum of the servers and the rain outside. I felt a strange connection to the machine, a shared sense of confusion. We were both trying to make sense of a world that refused to be ordered. The `Benchmark nonce` was not just a label; it was a challenge. `Trial-1` had failed. But failure was just data. And data, no matter how chaotic, could always be mined for insight. I cracked my knuckles and began to type again, ready for `Trial-2`. The night was young, and the code was endless."
+  },
+  {
+    "label": "zh-run-1",
+    "expected_prompt_tokens": null,
+    "request_sha256": "a46c509ac269a72532e1f1efbcab0a0620b172dc061598ff8efb7c3746b7c567",
+    "client_ttft_s": 0.26220389298396185,
+    "client_elapsed_s": 3.148205870995298,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 465,
+      "total_tokens": 535,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1790969204.2481973,
+      "duration_s": 3.1,
+      "finish": "stop",
+      "prompt_tokens": 70,
+      "reused": 0,
+      "output_tokens": 465,
+      "engine_generated": 465,
+      "prompt_ms": 250.2,
+      "decode_ms": 2894.7,
+      "decode_tok_s": 160.6,
+      "hit_rate": 1.0,
+      "ram_blobs": 1,
+      "file_blobs": 0,
+      "file_mb": 0.0,
+      "drafts_offered": 407,
+      "drafts_accepted": 258
+    },
+    "prefill_tok_s": 279.77617905675464,
+    "decode_tok_s": 160.63840812519433,
+    "tokens_per_round": 2.246376811594203,
+    "draft_accept": 0.6339066339066339,
+    "disk_read_mb": {
+      "nvme0n1": 40.2,
+      "sda": 0.0
+    },
+    "vram_mib": 76310,
+    "mem_available_gib": 205.6,
+    "engine_mem": {
+      "VmLck_gib": 0.0,
+      "VmPin_gib": 0.0,
+      "VmHWM_gib": 78.82,
+      "VmRSS_gib": 18.1,
+      "RssAnon_gib": 1.85,
+      "RssFile_gib": 0.28,
+      "RssShmem_gib": 15.96
+    },
+    "text": "哈希表是一种基于键值对存储的高效数据结构，其核心优势在于通过哈希函数实现近乎 $O(1)$ 时间复杂度的查找、插入和删除操作。\n\n**哈希函数**是哈希表的灵魂，它将任意长度的键映射为固定长度的整数索引。理想的哈希函数应具备均匀分布特性，使不同键尽可能分散到不同的桶中，从而减少冲突。常见的实现包括除法散列、乘法散列以及针对字符串的 DJB2 或 FNV 算法。\n\n然而，由于哈希空间有限而键空间无限，**冲突**不可避免。处理冲突主要有两种策略：**链地址法**和**开放寻址法**。链地址法在每个桶中维护一个链表（或红黑树），当多个键映射到同一索引时，新元素被追加到链表末尾。这种方法实现简单，且删除操作方便，但可能因链表过长导致性能退化。开放寻址法则在发生冲突时，按照特定探测序列（如线性探测、二次探测或双重哈希）寻找下一个空闲槽位。它缓存友好性更好，但删除操作复杂，且容易引发“聚集”现象，降低查找效率。\n\n**负载因子**是衡量哈希表拥挤程度的关键指标，定义为已存储元素数量与桶总数的比值。当负载因子超过预设阈值（通常为 0.75）时，哈希表会触发**扩容**机制：创建一个容量更大的新数组（通常为原容量的两倍），并重新计算所有元素的哈希值，将其迁移到新数组中。这一过程称为“再哈希”，虽然单次操作耗时较长，但能显著降低冲突概率，维持整体性能稳定。\n\n至于**平衡树**（如红黑树、AVL 树），它们在以下场景优于哈希表：首先，当需要支持**有序遍历**或范围查询时，哈希表无法提供顺序信息，而平衡树天然保持键的有序性；其次，在**最坏情况性能**要求极高的实时系统中，哈希表可能因大量冲突退化为 $O(n)$，而平衡树保证 $O(\\log n)$ 的稳定性能；最后，当键对象难以设计高效哈希函数，或内存极度受限且无法承受扩容开销时，平衡树也是更稳妥的选择。"
+  }
+]

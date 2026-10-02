@@ -1,0 +1,13 @@
+  model.language_model.layers.0.mlp.experts.0.down_proj.weight           (2560, 640)  bitwise OK   max|diff| 0  (-0.0 in source: 57290)
+  model.language_model.layers.16.mlp.experts.161.up_proj.weight          (640, 2560)  bitwise OK   max|diff| 0  (-0.0 in source: 57254)
+  model.language_model.layers.23.mlp.experts.225.gate_proj.weight        (640, 2560)  bitwise OK   max|diff| 0  (-0.0 in source: 56209)
+  model.language_model.layers.30.mlp.experts.29.down_proj.weight         (2560, 640)  bitwise OK   max|diff| 0  (-0.0 in source: 56239)
+  model.language_model.layers.38.mlp.experts.352.up_proj.weight          (640, 2560)  bitwise OK   max|diff| 0  (-0.0 in source: 56865)
+  model.language_model.layers.45.mlp.experts.416.gate_proj.weight        (640, 2560)  bitwise OK   max|diff| 0  (-0.0 in source: 56417)
+  scanned   1/193 shards, 384 scale tensors
+  scanned  41/193 shards, 15744 scale tensors
+  scanned  81/193 shards, 31104 scale tensors
+  scanned 121/193 shards, 46464 scale tensors
+  scanned 161/193 shards, 61824 scale tensors
+scale bytes 7.03 GiB in 73728 tensors: sign bit set 0, NaN 0
+RESULT: lossless
