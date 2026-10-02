@@ -86,6 +86,10 @@ def main() -> int:
     ap.add_argument("--model", required=True, help="the ModelOpt NVFP4 checkpoint directory")
     ap.add_argument("--outfile", required=True)
     ap.add_argument("--dry-run", action="store_true")
+    # the converter repacks every NVFP4 expert up front and holds the arrays until it writes the file (~63 GiB of
+    # RAM for Flash-Next); with this they go to a temporary file in $TMPDIR as they are made (put it on a disk)
+    ap.add_argument("--use-temp-file", action="store_true",
+                    help="spool the tensors through a temporary file in $TMPDIR instead of holding them in RAM")
     a = ap.parse_args()
     model = pathlib.Path(a.model)
     out = pathlib.Path(a.outfile)
@@ -97,6 +101,8 @@ def main() -> int:
     argv = [str(model), "--outtype", "q8_0", "--outfile", str(out)]
     if a.dry_run:
         argv.append("--dry-run")
+    if a.use_temp_file:
+        argv.append("--use-temp-file")
     sys.argv = ["convert_hf_to_gguf.py"] + argv
     t0 = time.time()
     rc = C.main()
