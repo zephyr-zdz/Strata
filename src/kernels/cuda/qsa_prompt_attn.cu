@@ -334,9 +334,9 @@ __global__ void __launch_bounds__(THREADS) prompt_attn_kernel(const float* __res
         }
         __syncthreads();
         // p.v: warp w owns dims [64w, 64w+64), which is int8 scale group w (q4_0: groups 2w and 2w+1, four n-tiles
-        // each). A group's scale is folded into p relative to the chunk's largest, times 2^14 (p' <= 2^14: its lo half
-        // stays out of FP16's subnormal range); the chunk's sum is then added to the running one in FP32 with the
-        // factor taken back out
+        // each). A group's scale is folded into p relative to the chunk's largest magnitude (q4_0's scales are signed:
+        // ggml's d = max / -8), times 2^14 (|p'| <= 2^14: inside FP16's range, its lo half out of the subnormals); the
+        // chunk's sum is then added to the running one in FP32 with the factor taken back out
         {
             constexpr int GPW = NG / 4, JPG = 8 / GPW;   // scale groups per warp, n-tiles per group
             float vdown_g[GPW];
@@ -348,7 +348,7 @@ __global__ void __launch_bounds__(THREADS) prompt_attn_kernel(const float* __res
             const int vg = warp * GPW + gi;
             float vmax = 0.0f;
 #pragma unroll
-            for (int c = lane; c < CH; c += 32) vmax = fmaxf(vmax, S.vs[c][vg]);
+            for (int c = lane; c < CH; c += 32) vmax = fmaxf(vmax, fabsf(S.vs[c][vg]));
 #pragma unroll
             for (int o = 16; o > 0; o >>= 1) vmax = fmaxf(vmax, __shfl_xor_sync(0xffffffffu, vmax, o));
             const float vup = vmax > 0.0f ? 16384.0f / vmax : 0.0f;

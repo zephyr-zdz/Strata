@@ -55,7 +55,10 @@ int run(int fmt, int64_t ctx, int64_t nq, int reps) {   // fmt 1 int8, 0 fp16, 2
     constexpr int64_t B4 = 18, ROW4 = 8 * B4;
     if (fmt == 2) {
         std::uniform_int_distribution<int> byte(0, 255);
-        std::uniform_real_distribution<float> sc4(0.04f, 0.3f);
+        // the scales as a q4_0 pool holds them: signed (ggml's d = max / -8) and spread over two decades, so a chunk's
+        // cells mix signs and magnitudes (a positive-only bound on them overflowed FP16 on real K/V)
+        std::uniform_real_distribution<float> lg(std::log(0.01f), std::log(1.0f));
+        auto sc4 = [&](std::mt19937& r) { return std::exp(lg(r)) * (byte(r) & 1 ? -1.0f : 1.0f); };
         k4.resize(rows * ROW4); v4.resize(rows * ROW4);
         for (auto* pool : {&k4, &v4})
             for (int64_t b = 0; b < rows * 8; ++b) {
