@@ -109,11 +109,18 @@ def main() -> int:
     took = time.time() - t0
 
     try:   # a release bundle ships the converter's files without git: its COMMIT file names the commit
-        commit = subprocess.run(["git", "-C", str(LLAMA), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+        # a plain copy of llama.cpp inside a git checkout of the engine answers with the engine's own HEAD: only a
+        # repository whose top level is the llama.cpp directory itself says which llama.cpp this is
+        top = subprocess.run(["git", "-C", str(LLAMA), "rev-parse", "--show-toplevel"], capture_output=True,
+                             text=True).stdout.strip()
+        commit = subprocess.run(["git", "-C", str(LLAMA), "rev-parse", "HEAD"], capture_output=True,
+                                text=True).stdout.strip() if top and pathlib.Path(top).resolve() == LLAMA.resolve() else ""
     except OSError:
         commit = ""
     if not commit and (LLAMA / "COMMIT").exists():
         commit = (LLAMA / "COMMIT").read_text(encoding="utf-8").strip()
+    if not commit and (ENGINE / "third_party" / "ggml" / "VERSION.txt").exists():   # the commit setup.py pins
+        commit = (ENGINE / "third_party" / "ggml" / "VERSION.txt").read_text(encoding="utf-8").split()[0]
     manifest = {
         "source": str(model),
         "llama_cpp_commit": commit,
